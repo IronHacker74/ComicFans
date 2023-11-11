@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CategoryCollectionCell: UICollectionViewCell {
+final class CategoryCollectionCell: UICollectionViewCell, UIViewLoading {
     @IBOutlet weak var categoryBackground: ShadowView!
     @IBOutlet weak var title: UILabel!
     

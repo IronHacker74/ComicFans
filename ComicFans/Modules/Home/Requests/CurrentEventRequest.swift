@@ -26,22 +26,13 @@ final class CurrentEventRequest {
                 return
             }
             do {
-                let eventData = try JSONDecoder().decode(EventData.self, from: data)
+                let eventData = try JSONDecoder().decode(CurrentEventData.self, from: data)
                 completion(eventData.data.results, nil)
             } catch {
                 // TODO: Add a specific error type here
                 completion(nil, nil)
             }
         })
-    }
-}
-
-
-struct EventData: Decodable {
-    let data: ResultsData
-    let attributionText: String
-    struct ResultsData: Decodable {
-        let results: [Event]?
     }
 }
 

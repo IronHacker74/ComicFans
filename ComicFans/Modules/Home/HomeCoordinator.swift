@@ -7,17 +7,8 @@
 
 import UIKit
 
-enum SubjectCategory: String {
-    case comics = "Comics"
-    case characters = "Characters"
-    case creators = "Creators"
-    case events = "Events"
-    case series = "Series"
-    case stories = "Stories"
-}
-
 struct HomeComicFansCategory {
-    let title: SubjectCategory
+    let title: BrowseType
     let image: UIImage?
 }
 
@@ -46,8 +37,14 @@ final class HomeCoordinator: HomeDelegate {
             HomeComicFansCategory(title: .stories, image: nil),
             HomeComicFansCategory(title: .events, image: nil),
             HomeComicFansCategory(title: .creators, image: nil)
-
         ]
         vc.updateCategories(categories)
+    }
+    
+    func homeMediatingControllerCategoryCellTapped(vc: UIViewController, browseType: BrowseType) {
+        let factory = BrowseFactory()
+        let coordinator = factory.makeCoordinator(browseType: browseType)
+        let controller = factory.makeMediatingController(delegate: coordinator)
+        vc.navigationController?.pushViewController(controller, animated: true)
     }
 }

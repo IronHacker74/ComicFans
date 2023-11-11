@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 struct Thumbnail: Decodable {
-    private let path: String
-    private let pathextension: String
-    let fullPath: String
+    private let path: String?
+    private let pathextension: String?
+    let fullPath: String?
     
     enum CodingKeys: String, CodingKey {
         case path
@@ -20,9 +20,9 @@ struct Thumbnail: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.path = try container.decode(String.self, forKey: .path)
-        self.pathextension = try container.decode(String.self, forKey: .pathExtension)
-        self.fullPath = self.path + "." + self.pathextension
+        self.path = try? container.decode(String.self, forKey: .path)
+        self.pathextension = try? container.decode(String.self, forKey: .pathExtension)
+        self.fullPath = (self.path ?? "") + "." + (self.pathextension ?? "")
     }
     
     init(path: String, pathextension: String, fullPath: String) {

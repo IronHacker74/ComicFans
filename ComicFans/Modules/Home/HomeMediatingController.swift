@@ -9,6 +9,7 @@ import UIKit
 
 protocol HomeDelegate {
     func homeMediatingControllerViewDidLoad(_ vc: HomeDisplayable, offset: Int)
+    func homeMediatingControllerCategoryCellTapped(vc: UIViewController, browseType: BrowseType)
 }
 
 protocol HomeDisplayable {
@@ -16,7 +17,7 @@ protocol HomeDisplayable {
     func updateCategories(_ newCategories: [HomeComicFansCategory])
 }
 
-class HomeMediatingController: UIViewController {
+class HomeMediatingController: UIViewController, UIViewLoading {
 
     @IBOutlet private (set) var collectionview: UICollectionView!
     @IBOutlet private (set) var tableview: UITableView!
@@ -89,5 +90,7 @@ extension HomeMediatingController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.delegate?.homeMediatingControllerCategoryCellTapped(vc: self, browseType: self.categories[indexPath.row].title)
+    }
 }
