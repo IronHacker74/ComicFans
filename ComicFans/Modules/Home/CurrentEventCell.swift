@@ -16,8 +16,18 @@ final class CurrentEventCell: UITableViewCell, UIViewLoading {
     func configureCell(event: Event) {
         self.titleLabel.text = event.title
         self.descriptionLabel.text = event.description
-        if let imagePath = event.thumbnail?.fullPath {
-            self.eventImage.downloaded(from: imagePath)
+    }
+    
+    func configureImage(image: UIImage?, imagePath: String?, completion: @escaping (UIImage?) -> Void) {
+        if let image {
+            self.eventImage.image = image
+            completion(nil)
+            return
         }
+        if let imagePath {
+            self.eventImage.downloaded(from: imagePath, completion: completion)
+            return
+        }
+        completion(nil)
     }
 }

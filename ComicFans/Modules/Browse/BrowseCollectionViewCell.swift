@@ -17,7 +17,9 @@ final class BrowseCollectionViewCell: UICollectionViewCell, UIViewLoading {
         self.browseTitle.text = title
         self.browseDescription.text = description
         if let imagePath = imageURL {
-            self.browseImage.downloaded(from: imagePath, contentMode: .scaleAspectFill)
+            self.browseImage.downloaded(from: imagePath, contentMode: .scaleAspectFill, completion: { image in
+                
+            })
         }
     }
 }

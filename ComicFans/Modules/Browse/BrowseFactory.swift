@@ -14,7 +14,7 @@ class BrowseFactory {
         return coordinator
     }
     
-    func makeMediatingController(delegate: BrowseDelegate) -> BrowseMediatingController {
-        return BrowseMediatingController(delegate: delegate)
+    func makeMediatingController(delegate: BrowseDelegate, screenTitle: String) -> BrowseMediatingController {
+        return BrowseMediatingController(delegate: delegate, screenTitle: screenTitle)
     }
 }

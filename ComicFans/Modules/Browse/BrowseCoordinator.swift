@@ -16,13 +16,14 @@ class BrowseCoordinator: BrowseDelegate {
     
     func browseViewDidLoad(_ vc: BrowseDisplayable, offset: Int) {
         vc.setupCollectionview()
-        self.request.getBrowse(orderBy: .name, limit: 20, offset: offset, completion: { results, error in
+        self.request.getBrowse(orderBy: .name, limit: 20, offset: offset, completion: { results, attribution, error in
             guard let results, error == nil else {
                 // TODO: show error
                 return
             }
             DispatchQueue.main.async {
                 vc.updateBrowseCollectionView(browseArray: results)
+                vc.updateAttributionText(attribution)
             }
         })
     }

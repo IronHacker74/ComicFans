@@ -75,7 +75,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Powered by Marvel™" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4B-nF-c1L" userLabel="CopyrightLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4B-nF-c1L" userLabel="CopyrightLabel">
                                 <rect key="frame" x="16" y="797" width="361" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -95,8 +95,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="FTK-ex-abb"/>
                     <connections>
+                        <outlet property="attributionLabel" destination="m4B-nF-c1L" id="b8z-dt-Yj2"/>
                         <outlet property="collectionview" destination="Hb3-4x-btF" id="Fe3-nA-wrX"/>
-                        <outlet property="copyrightLabel" destination="m4B-nF-c1L" id="b8z-dt-Yj2"/>
                         <outlet property="tableview" destination="eEk-aZ-cOA" id="DXc-lj-gzG"/>
                     </connections>
                 </viewController>
@@ -128,7 +128,7 @@
     </scenes>
     <resources>
         <systemColor name="separatorColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -18,6 +18,6 @@ final class HomeMediatingControllerTests: XCTestCase {
         // then
         XCTAssertNotNil(controller.collectionview)
         XCTAssertNotNil(controller.tableview)
-        XCTAssertNotNil(controller.copyrightLabel)
+        XCTAssertNotNil(controller.attributionLabel)
     }
 }

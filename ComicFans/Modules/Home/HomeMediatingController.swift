@@ -15,13 +15,14 @@ protocol HomeDelegate {
 protocol HomeDisplayable {
     func updateEvents(_ newEvents: [Event])
     func updateCategories(_ newCategories: [HomeComicFansCategory])
+    func updateAttributionText(_ text: String?)
 }
 
 class HomeMediatingController: UIViewController, UIViewLoading {
 
     @IBOutlet private (set) var collectionview: UICollectionView!
     @IBOutlet private (set) var tableview: UITableView!
-    @IBOutlet private (set) var copyrightLabel: UILabel!
+    @IBOutlet private (set) var attributionLabel: UILabel!
     
     private var delegate: HomeDelegate?
     private var events: [Event] = []
@@ -60,6 +61,10 @@ extension HomeMediatingController: HomeDisplayable {
         self.categories.append(contentsOf: newCategories)
         self.collectionview.reloadData()
     }
+    
+    func updateAttributionText(_ text: String?) {
+        self.attributionLabel.text = text
+    }
 }
 
 extension HomeMediatingController: UITableViewDelegate, UITableViewDataSource {
@@ -71,7 +76,11 @@ extension HomeMediatingController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: self.tableviewIdentifier, for: indexPath) as? CurrentEventCell else {
             return UITableViewCell()
         }
-        cell.configureCell(event: self.events[indexPath.row])
+        let event = self.events[indexPath.row]
+        cell.configureCell(event: event)
+        cell.configureImage(image: event.image, imagePath: event.thumbnail?.fullPath, completion: { image in
+            event.image = image
+        })
         return cell
     }
     

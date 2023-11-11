@@ -13,6 +13,7 @@ protocol BrowseDelegate {
 
 protocol BrowseDisplayable: BrowseCollectionViewDelegate {
     func updateBrowseCollectionView(browseArray: [DataSetProtocol])
+    func updateAttributionText(_ text: String?)
     func setupCollectionview()
     func setupTableview()
 }
@@ -24,12 +25,14 @@ final class BrowseMediatingController: UIViewController {
     
     @IBOutlet private (set) var searchbar: UISearchBar!
     @IBOutlet private (set) var browseContentView: UIStackView!
-    @IBOutlet private (set) var copyrightLabel: UILabel!
+    @IBOutlet private (set) var attributionLabel: UILabel!
     
     private var delegate: BrowseDelegate?
+    private var screenTitle: String
 
-    init(delegate: BrowseDelegate?) {
+    init(delegate: BrowseDelegate?, screenTitle: String) {
         self.delegate = delegate
+        self.screenTitle = screenTitle
         super.init(nibName: "BrowseMediatingController", bundle: nil)
     }
     
@@ -39,7 +42,12 @@ final class BrowseMediatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = self.screenTitle
         self.delegate?.browseViewDidLoad(self, offset: 0)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 }
 
@@ -58,6 +66,10 @@ extension BrowseMediatingController: BrowseDisplayable {
             collectionview.browseData = browseArray
             collectionview.reloadData()
         }
+    }
+    
+    func updateAttributionText(_ text: String?) {
+        self.attributionLabel.text = text
     }
 }
 

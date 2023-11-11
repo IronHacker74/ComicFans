@@ -21,13 +21,14 @@ final class HomeCoordinator: HomeDelegate {
     }
     
     func homeMediatingControllerViewDidLoad(_ vc: HomeDisplayable, offset: Int) {
-        self.request.getCurrentEvents(limit: self.limit, offset: offset, completion: {events, error in
+        self.request.getCurrentEvents(limit: self.limit, offset: offset, completion: {events, attribution, error in
             guard let events else {
                 //TODO: do something with error
                 return
             }
             DispatchQueue.main.async {
                 vc.updateEvents(events)
+                vc.updateAttributionText(attribution)
             }
         })
         let categories: [HomeComicFansCategory] = [
@@ -44,7 +45,7 @@ final class HomeCoordinator: HomeDelegate {
     func homeMediatingControllerCategoryCellTapped(vc: UIViewController, browseType: BrowseType) {
         let factory = BrowseFactory()
         let coordinator = factory.makeCoordinator(browseType: browseType)
-        let controller = factory.makeMediatingController(delegate: coordinator)
+        let controller = factory.makeMediatingController(delegate: coordinator, screenTitle: browseType.rawValue.firstUppercased)
         vc.navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -16,7 +16,7 @@ final class BrowseRequest {
         self.browseType = browseType
     }
     
-    func getBrowse(orderBy: OrderByType, limit: Int, offset: Int, completion: @escaping ([DataSet]?, Error?) -> (Void)) {
+    func getBrowse(orderBy: OrderByType, limit: Int, offset: Int, completion: @escaping ([DataSet]?, String?, Error?) -> (Void)) {
         let parameters: [DownloadParameterType : String] = [
 //            .orderBy : orderBy.rawValue,
             .limit : "\(limit)",
@@ -24,26 +24,18 @@ final class BrowseRequest {
         ]
         self.downloader.getRequest(endPoint: self.browseType.rawValue, parameters: parameters, completion: { data,error in
             guard let data else {
-                completion(nil, error)
+                completion(nil, nil, error)
                 return
             }
             do {
                 let results = try JSONDecoder().decode(APIData.self, from: data)
-                completion(results.data.results, nil)
+                completion(results.data.results, results.attributionText, nil)
             } catch {
                 // TODO: Return an error type
-                completion(nil, nil)
+                completion(nil, nil, nil)
             }
         })
         
-    }
-}
-
-struct APIData: Decodable {
-    let data: ResultsData
-    let attributionText: String
-    struct ResultsData : Decodable {
-        let results: [DataSet]?
     }
 }
 

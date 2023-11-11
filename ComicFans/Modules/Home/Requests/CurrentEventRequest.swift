@@ -14,7 +14,7 @@ final class CurrentEventRequest {
         self.downloader = downloader
     }
     
-    func getCurrentEvents(limit: Int, offset: Int, completion: @escaping ([Event]?, Error?) -> (Void)) {
+    func getCurrentEvents(limit: Int, offset: Int, completion: @escaping ([Event]?, String?, Error?) -> (Void)) {
         let parameters: [DownloadParameterType : String] = [
             .orderBy : "-startDate",
             .limit : "\(limit)",
@@ -22,15 +22,15 @@ final class CurrentEventRequest {
         ]
         self.downloader.getRequest(endPoint: "events", parameters: parameters, completion: { data,error in
             guard let data else {
-                completion(nil, error)
+                completion(nil, nil, error)
                 return
             }
             do {
                 let eventData = try JSONDecoder().decode(CurrentEventData.self, from: data)
-                completion(eventData.data.results, nil)
+                completion(eventData.data.results, eventData.attributionText,  nil)
             } catch {
                 // TODO: Add a specific error type here
-                completion(nil, nil)
+                completion(nil, nil, nil)
             }
         })
     }
