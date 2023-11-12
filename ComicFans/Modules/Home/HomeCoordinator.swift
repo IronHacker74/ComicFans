@@ -15,9 +15,11 @@ struct HomeComicFansCategory {
 final class HomeCoordinator: HomeDelegate {
     private let request: CurrentEventRequest
     private let limit: Int = 20
+    private let navigator: UINavigationController?
     
-    init(request: CurrentEventRequest) {
+    init(request: CurrentEventRequest, navigator: UINavigationController?) {
         self.request = request
+        self.navigator = navigator
     }
     
     func homeMediatingControllerViewDidLoad(_ vc: HomeDisplayable, offset: Int) {
@@ -42,10 +44,17 @@ final class HomeCoordinator: HomeDelegate {
         vc.updateCategories(categories)
     }
     
-    func homeMediatingControllerCategoryCellTapped(vc: UIViewController, browseType: BrowseType) {
+    func homeMediatingControllerCategoryCellTapped(browseType: BrowseType) {
         let factory = BrowseFactory()
-        let coordinator = factory.makeCoordinator(browseType: browseType)
+        let coordinator = factory.makeCoordinator(browseType: browseType, navigator: self.navigator)
         let controller = factory.makeMediatingController(delegate: coordinator, screenTitle: browseType.rawValue.firstUppercased)
-        vc.navigationController?.pushViewController(controller, animated: true)
+        self.navigator?.pushViewController(controller, animated: true)
+    }
+    
+    func homeMediatingControllerEventTapped(event: DataSet, attribution: String?) {
+        let factory = DetailsFactory()
+        let coordinator = factory.makeCoordinator(dataSet: event, attribution: attribution)
+        let controller = factory.makeMediatingController(delegate: coordinator)
+        self.navigator?.pushViewController(controller, animated: true)
     }
 }

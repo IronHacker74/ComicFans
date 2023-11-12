@@ -10,7 +10,7 @@ import UIKit
 final class BrowseCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate, UIViewLoading {
     
     private var browseDelegate: BrowseCollectionViewDelegate?
-    var browseData: [DataSetProtocol] = []
+    var browseData: [DataSet] = []
     private let cellIdentifier = "BrowseCollectionViewCell"
     
     init(browseDelegate: BrowseCollectionViewDelegate?) {
@@ -35,7 +35,14 @@ final class BrowseCollectionView: UICollectionView, UICollectionViewDataSource, 
             return UICollectionViewCell()
         }
         let dataset = self.browseData[indexPath.row]
-        cell.configureCell(imageURL: dataset.thumbnail?.fullPath, title: dataset.getTitle(), description: dataset.description)
+        cell.configureCell(title: dataset.getTitle(), description: dataset.description)
+        cell.configureImage(image: dataset.image, imagePath: dataset.thumbnail?.fullPath, completion: { image in
+            self.browseData[indexPath.row].image = image
+        })
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.browseDelegate?.collectionViewCellTapped(dataSet: self.browseData[indexPath.row])
     }
 }

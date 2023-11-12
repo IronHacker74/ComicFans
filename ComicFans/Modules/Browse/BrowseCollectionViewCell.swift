@@ -13,13 +13,21 @@ final class BrowseCollectionViewCell: UICollectionViewCell, UIViewLoading {
     @IBOutlet weak var browseTitle: UILabel!
     @IBOutlet weak var browseDescription: UILabel!
     
-    func configureCell(imageURL: String?, title: String?, description: String?) {
+    func configureCell(title: String?, description: String?) {
         self.browseTitle.text = title
         self.browseDescription.text = description
-        if let imagePath = imageURL {
-            self.browseImage.downloaded(from: imagePath, contentMode: .scaleAspectFill, completion: { image in
-                
-            })
+    }
+    
+    func configureImage(image: UIImage?, imagePath: String?, completion: @escaping (UIImage?) -> Void) {
+        if let image {
+            self.browseImage.image = image
+            completion(nil)
+            return
         }
+        if let imagePath {
+            self.browseImage.downloaded(from: imagePath, contentMode: .scaleAspectFill, completion: completion)
+            return
+        }
+        completion(nil)
     }
 }

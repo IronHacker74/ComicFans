@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 class BrowseFactory {
-    func makeCoordinator(browseType: BrowseType) -> BrowseCoordinator {
+    func makeCoordinator(browseType: BrowseType, navigator: UINavigationController?) -> BrowseCoordinator {
         let request = BrowseRequest(browseType: browseType)
-        let coordinator = BrowseCoordinator(request: request)
+        let coordinator = BrowseCoordinator(request: request, navigator: navigator)
         return coordinator
     }
     

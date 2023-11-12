@@ -9,9 +9,11 @@ import UIKit
 
 class BrowseCoordinator: BrowseDelegate {
     let request: BrowseRequest
+    let navigator: UINavigationController?
     
-    init(request: BrowseRequest) {
+    init(request: BrowseRequest, navigator: UINavigationController?) {
         self.request = request
+        self.navigator = navigator
     }
     
     func browseViewDidLoad(_ vc: BrowseDisplayable, offset: Int) {
@@ -26,5 +28,12 @@ class BrowseCoordinator: BrowseDelegate {
                 vc.updateAttributionText(attribution)
             }
         })
+    }
+    
+    func browseCollectionViewCellTapped(dataSet: DataSet, attribution: String?) {
+        let factory = DetailsFactory()
+        let coordinator = factory.makeCoordinator(dataSet: dataSet, attribution: attribution)
+        let controller = factory.makeMediatingController(delegate: coordinator)
+        self.navigator?.pushViewController(controller, animated: true)
     }
 }

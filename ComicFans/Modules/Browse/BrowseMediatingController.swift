@@ -9,16 +9,18 @@ import UIKit
 
 protocol BrowseDelegate {
     func browseViewDidLoad(_ vc: any BrowseDisplayable, offset: Int)
+    func browseCollectionViewCellTapped(dataSet: DataSet, attribution: String?)
 }
 
 protocol BrowseDisplayable: BrowseCollectionViewDelegate {
-    func updateBrowseCollectionView(browseArray: [DataSetProtocol])
+    func updateBrowseCollectionView(browseArray: [DataSet])
     func updateAttributionText(_ text: String?)
     func setupCollectionview()
-    func setupTableview()
+    func setupTableview(dataSet: DataSet)
 }
 
 protocol BrowseCollectionViewDelegate {
+    func collectionViewCellTapped(dataSet: DataSet)
 }
 
 final class BrowseMediatingController: UIViewController {
@@ -57,11 +59,11 @@ extension BrowseMediatingController: BrowseDisplayable {
         self.browseContentView.addArrangedSubview(collectionview)
     }
     
-    func setupTableview() {
+    func setupTableview(dataSet: DataSet) {
         // TODO: setup tableview
     }
     
-    func updateBrowseCollectionView(browseArray: [DataSetProtocol]) {
+    func updateBrowseCollectionView(browseArray: [DataSet]) {
         if let collectionview = browseContentView.subviews.first(where: { $0 is BrowseCollectionView }) as? BrowseCollectionView {
             collectionview.browseData = browseArray
             collectionview.reloadData()
@@ -70,6 +72,10 @@ extension BrowseMediatingController: BrowseDisplayable {
     
     func updateAttributionText(_ text: String?) {
         self.attributionLabel.text = text
+    }
+    
+    func collectionViewCellTapped(dataSet: DataSet) {
+        self.delegate?.browseCollectionViewCellTapped(dataSet: dataSet, attribution: self.attributionLabel.text)
     }
 }
 

@@ -11,20 +11,12 @@ import UIKit
 struct APIData: Decodable {
     let data: ResultsData
     let attributionText: String
-    struct ResultsData : Decodable {
+    struct ResultsData: Decodable {
         let results: [DataSet]?
     }
 }
 
-protocol DataSetProtocol: Decodable {
-    var id: Int? { get set }
-    var title: String? { get set }
-    var description: String? { get set }
-    var thumbnail: Thumbnail? { get set }
-    func getTitle() -> String?
-}
-
-class DataSet: DataSetProtocol {
+struct DataSet: Decodable {
     var id: Int?
     var title: String?
     var name: String?
@@ -60,7 +52,7 @@ class DataSet: DataSetProtocol {
         case urls
     }
     
-    required init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try? container.decode(Int.self, forKey: .id)
         self.name = try? container.decode(String.self, forKey: .name)
