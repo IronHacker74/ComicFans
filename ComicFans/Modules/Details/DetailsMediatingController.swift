@@ -16,7 +16,6 @@ protocol DetailsDisplayable {
 }
 
 final class DetailsMediatingController: UIViewController {
-    @IBOutlet private (set) var thumbnailImage: UIImageView!
     @IBOutlet private (set) var tableview: UITableView!
     @IBOutlet private (set) var attributionLabel: UILabel!
     
@@ -58,7 +57,7 @@ final class DetailsMediatingController: UIViewController {
 extension DetailsMediatingController: DetailsDisplayable {
     func setOutlets(data: DataSet, attribution: String?) {
         self.navigationItem.title = data.getTitle()
-        self.thumbnailImage.image = data.image
+        self.setupImage(data.image)
         self.attributionLabel.text = attribution
         self.addDescription(data.description)
         self.addToDetails(additionalItems: data.characters, browseType: .characters)
@@ -68,6 +67,27 @@ extension DetailsMediatingController: DetailsDisplayable {
         self.addToDetails(additionalItems: data.series, browseType: .series)
         self.addToDetails(additionalItems: data.stories, browseType: .stories)
         self.tableview.reloadData()
+    }
+    
+    private func setupImage(_ image: UIImage?) {
+        guard let image else {
+            // TODO: implement for uiview
+//            self.browseImage.downloaded(from: imagePath, contentMode: .scaleAspectFill, completion: { image in
+//                self.setupTableViewImageHeader(image)
+//            })
+            return
+        }
+        self.setupTableViewImageHeader(image)
+    }
+    
+    private func setupTableViewImageHeader(_ image: UIImage) {
+        let heightMultiple = self.view.frame.size.width / image.size.width
+        let height = image.size.height * heightMultiple
+        
+        var frame = CGRectMake(0, 0, self.view.frame.size.width, height)
+        var headerImageView = UIImageView(frame: frame)
+        headerImageView.image = image
+        self.tableview.tableHeaderView = headerImageView
     }
     
     private func addDescription(_ description: String?) {

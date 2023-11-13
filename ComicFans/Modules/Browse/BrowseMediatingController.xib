@@ -21,19 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4F-dt-GJ2">
-                    <rect key="frame" x="0.0" y="113" width="393" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="R4F-dt-GJ2">
+                    <rect key="frame" x="0.0" y="59" width="393" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-oe-1SF">
-                    <rect key="frame" x="0.0" y="217" width="393" height="524"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-oe-1SF">
+                    <rect key="frame" x="0.0" y="163" width="393" height="607"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9g-XZ-OCw">
-                    <rect key="frame" x="46" y="798" width="300" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9g-XZ-OCw">
+                    <rect key="frame" x="16" y="818" width="361" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -41,6 +38,18 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="R4F-dt-GJ2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Cpg-FA-ykS"/>
+                <constraint firstItem="VbE-oe-1SF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Gi6-Od-gbl"/>
+                <constraint firstItem="VbE-oe-1SF" firstAttribute="top" secondItem="R4F-dt-GJ2" secondAttribute="bottom" constant="48" id="Hcl-TO-xNp"/>
+                <constraint firstItem="R4F-dt-GJ2" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="XdR-kx-PtA"/>
+                <constraint firstItem="X9g-XZ-OCw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="c0C-b9-wBP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="X9g-XZ-OCw" secondAttribute="trailing" constant="16" id="cIy-Zy-tqx"/>
+                <constraint firstItem="X9g-XZ-OCw" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="irZ-Cz-aQJ"/>
+                <constraint firstItem="X9g-XZ-OCw" firstAttribute="top" secondItem="VbE-oe-1SF" secondAttribute="bottom" constant="48" id="tlb-6F-Ths"/>
+                <constraint firstItem="VbE-oe-1SF" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="xOd-15-39k"/>
+                <constraint firstItem="R4F-dt-GJ2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="zqY-gP-1JT"/>
+            </constraints>
             <point key="canvasLocation" x="-45.038167938931295" y="19.718309859154932"/>
         </view>
     </objects>
