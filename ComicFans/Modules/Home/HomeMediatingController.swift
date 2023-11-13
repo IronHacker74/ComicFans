@@ -15,7 +15,7 @@ protocol HomeDelegate {
 
 protocol HomeDisplayable {
     func updateEvents(_ newEvents: [DataSet])
-    func updateCategories(_ newCategories: [HomeComicFansCategory])
+    func updateCategories(_ newCategories: [BrowseType])
     func updateAttributionText(_ text: String?)
 }
 
@@ -27,14 +27,16 @@ class HomeMediatingController: UIViewController, UIViewLoading {
     
     private var delegate: HomeDelegate?
     private var events: [DataSet] = []
-    private var categories: [HomeComicFansCategory] = []
+    private var categories: [BrowseType] = []
     private let tableviewIdentifier: String = "CurrentEventCell"
     private let collectionviewIdentifier: String = "CategoryCollectionCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.overrideUserInterfaceStyle = .dark
         self.delegate = HomeCoordinator(request: CurrentEventRequest(), navigator: self.navigationController)
         self.navigationItem.title = "ComicFans"
+        self.view.backgroundColor = .darkBlue()
         self.setupTableView()
         self.setupCollectionView()
         self.delegate?.homeMediatingControllerViewDidLoad(self, offset: 0)
@@ -58,7 +60,7 @@ extension HomeMediatingController: HomeDisplayable {
         self.tableview.reloadData()
     }
     
-    func updateCategories(_ newCategories: [HomeComicFansCategory]) {
+    func updateCategories(_ newCategories: [BrowseType]) {
         self.categories.append(contentsOf: newCategories)
         self.collectionview.reloadData()
     }
@@ -99,11 +101,11 @@ extension HomeMediatingController: UICollectionViewDelegate, UICollectionViewDat
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.collectionviewIdentifier, for: indexPath) as? CategoryCollectionCell else {
             return UICollectionViewCell()
         }
-        cell.configureCell(title: self.categories[indexPath.row].title.rawValue)
+        cell.configureCell(title: self.categories[indexPath.row].rawValue)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate?.homeMediatingControllerCategoryCellTapped(browseType: self.categories[indexPath.row].title)
+        self.delegate?.homeMediatingControllerCategoryCellTapped(browseType: self.categories[indexPath.row])
     }
 }

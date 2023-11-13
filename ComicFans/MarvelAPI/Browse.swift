@@ -14,4 +14,5 @@ enum BrowseType: String {
     case events = "events"
     case series = "series"
     case stories = "stories"
+    case none = ""
 }

@@ -14,6 +14,8 @@ final class CurrentEventCell: UITableViewCell, UIViewLoading {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     func configureCell(event: DataSet) {
+        self.backgroundColor = .clear
+        self.eventBackground.backgroundColor = .cream()
         self.titleLabel.text = event.title
         self.descriptionLabel.text = event.description
     }

@@ -12,6 +12,8 @@ final class CategoryCollectionCell: UICollectionViewCell, UIViewLoading {
     @IBOutlet weak var title: UILabel!
     
     func configureCell(title: String) {
+        self.backgroundColor = .clear
+        self.categoryBackground.backgroundColor = .darkRed()
         self.title.text = title
     }
 }

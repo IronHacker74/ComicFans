@@ -14,6 +14,8 @@ final class BrowseCollectionViewCell: UICollectionViewCell, UIViewLoading {
     @IBOutlet weak var browseDescription: UILabel!
     
     func configureCell(title: String?, description: String?) {
+        self.backgroundColor = .clear
+        self.browseBackgroundView.backgroundColor = .cream()
         self.browseTitle.text = title
         self.browseDescription.text = description
     }

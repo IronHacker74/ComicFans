@@ -44,6 +44,9 @@ final class BrowseMediatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .darkBlue()
+        self.searchbar.barTintColor = .darkRed()
+        self.searchbar.tintColor = .white
         self.navigationItem.title = self.screenTitle
         self.delegate?.browseViewDidLoad(self, offset: 0)
     }
@@ -56,6 +59,7 @@ final class BrowseMediatingController: UIViewController {
 extension BrowseMediatingController: BrowseDisplayable {
     func setupCollectionview() {
         let collectionview = BrowseCollectionView(browseDelegate: self)
+        collectionview.backgroundColor = .clear
         self.browseContentView.addArrangedSubview(collectionview)
     }
     

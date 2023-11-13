@@ -33,14 +33,7 @@ final class HomeCoordinator: HomeDelegate {
                 vc.updateAttributionText(attribution)
             }
         })
-        let categories: [HomeComicFansCategory] = [
-            HomeComicFansCategory(title: .comics, image: nil),
-            HomeComicFansCategory(title: .characters, image: nil),
-            HomeComicFansCategory(title: .series, image: nil),
-            HomeComicFansCategory(title: .stories, image: nil),
-            HomeComicFansCategory(title: .events, image: nil),
-            HomeComicFansCategory(title: .creators, image: nil)
-        ]
+        let categories: [BrowseType] = [.characters, .comics, .creators, .events, .series, .stories]
         vc.updateCategories(categories)
     }
     

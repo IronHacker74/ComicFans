@@ -69,7 +69,6 @@ struct DataSet: Decodable {
         self.stories = try? container.decode(AdditionalItems.self, forKey: .stories)
         self.events = try? container.decode(AdditionalItems.self, forKey: .events)
         self.urls = try? container.decode([URLItem].self, forKey: .urls)
-        print("SUCCESS")
     }
     
     init(id: Int?, name: String?, title: String?, description: String?, thumbnail: Thumbnail){
@@ -94,11 +93,17 @@ struct DataSet: Decodable {
 
 struct AdditionalItems: Decodable {
     let items: [Item]
+    var category: String?
     
     struct Item: Decodable {
         let resourceURI: String?
         let name: String?
         let type: String?
+        init(resourceURI: String?, name: String?, type: String?) {
+            self.resourceURI = resourceURI
+            self.name = name
+            self.type = type
+        }
     }
 }
 

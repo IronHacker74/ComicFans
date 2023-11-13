@@ -12,7 +12,7 @@
         <!--Home Mediating Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeMediatingController" customModule="ComicFans" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeMediatingController" id="BYZ-38-t0r" customClass="HomeMediatingController" customModule="ComicFans" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hb3-4x-btF">
                                 <rect key="frame" x="0.0" y="103" width="393" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SeR-od-p0W">
                                     <size key="itemSize" width="160" height="80"/>
                                     <size key="estimatedItemSize" width="160" height="80"/>
@@ -36,13 +36,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyp-fZ-MHG" customClass="ShadowView" customModule="ComicFans" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pyp-fZ-MHG" customClass="ShadowView" customModule="ComicFans" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="144" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyV-Ta-mMI">
-                                                            <rect key="frame" x="0.0" y="22" width="144" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="144" height="64"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -50,12 +51,6 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="pyp-fZ-MHG" secondAttribute="trailing" constant="8" id="e7Z-b8-988"/>
-                                                <constraint firstItem="pyp-fZ-MHG" firstAttribute="top" secondItem="JQm-L4-8wZ" secondAttribute="top" constant="8" id="fsf-26-T3r"/>
-                                                <constraint firstAttribute="bottom" secondItem="pyp-fZ-MHG" secondAttribute="bottom" constant="8" id="gpq-XP-Gg4"/>
-                                                <constraint firstItem="pyp-fZ-MHG" firstAttribute="leading" secondItem="JQm-L4-8wZ" secondAttribute="leading" constant="8" id="h8g-lc-a6A"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="160" height="80"/>
                                         <connections>
@@ -66,32 +61,33 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xsN-Ec-KqD">
-                                <rect key="frame" x="16" y="192" width="361" height="1"/>
+                                <rect key="frame" x="16" y="197" width="361" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="175" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eEk-aZ-cOA">
-                                <rect key="frame" x="0.0" y="229" width="393" height="560"/>
+                                <rect key="frame" x="0.0" y="236" width="393" height="544"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4B-nF-c1L" userLabel="CopyrightLabel">
-                                <rect key="frame" x="16" y="797" width="361" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Events" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdk-UO-OqL">
+                                <rect key="frame" x="16" y="206" width="361" height="22.333333333333343"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Events" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdk-UO-OqL">
-                                <rect key="frame" x="16" y="200" width="361" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4B-nF-c1L" userLabel="CopyrightLabel">
+                                <rect key="frame" x="16" y="788" width="361" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="FTK-ex-abb"/>
                     <connections>
@@ -112,8 +108,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VuD-A9-K6B">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="22"/>
+                            <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -128,7 +125,7 @@
     </scenes>
     <resources>
         <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
