@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "F1CDBA80-D1DF-49CB-A7E9-F69B4446B467",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:ComicFans.xcodeproj",
+      "identifier" : "83738D162AF7087D00F185FC",
+      "name" : "ComicFans"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:ComicFans.xcodeproj",
+        "identifier" : "83738D2C2AF7087D00F185FC",
+        "name" : "ComicFansTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:ComicFans.xcodeproj",
+        "identifier" : "83738D362AF7087E00F185FC",
+        "name" : "ComicFansUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

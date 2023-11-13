@@ -18,6 +18,15 @@ enum DownloadParameterType: String {
     case nameStartsWith = "nameStartsWith"
 }
 
+enum OrderByType: String {
+    case startDate = "startDate"
+    case name = "name"
+    case modified = "modified"
+    case reverseStartDate = "-startDate"
+    case reverseName = "-name"
+    case reverseModified = "-modified"
+}
+
 final class Downloader {
     fileprivate let baseURL = "http://gateway.marvel.com/v1/public/"
     private var timestamp: String {

@@ -14,3 +14,7 @@ extension String {
         return computed.map { String(format: "%02hhx", $0) }.joined()
     }
 }
+
+extension StringProtocol {
+    var firstUppercased: String { return prefix(1).uppercased() + dropFirst() }
+}

@@ -7,47 +7,47 @@
 
 import UIKit
 
-enum SubjectCategory: String {
-    case comics = "Comics"
-    case characters = "Characters"
-    case creators = "Creators"
-    case events = "Events"
-    case series = "Series"
-    case stories = "Stories"
-}
-
 struct HomeComicFansCategory {
-    let title: SubjectCategory
+    let title: BrowseType
     let image: UIImage?
 }
 
 final class HomeCoordinator: HomeDelegate {
     private let request: CurrentEventRequest
     private let limit: Int = 20
+    private let navigator: UINavigationController?
     
-    init(request: CurrentEventRequest) {
+    init(request: CurrentEventRequest, navigator: UINavigationController?) {
         self.request = request
+        self.navigator = navigator
     }
     
     func homeMediatingControllerViewDidLoad(_ vc: HomeDisplayable, offset: Int) {
-        self.request.getCurrentEvents(limit: self.limit, offset: offset, completion: {events, error in
+        self.request.getCurrentEvents(limit: self.limit, offset: offset, completion: {events, attribution, error in
             guard let events else {
                 //TODO: do something with error
                 return
             }
             DispatchQueue.main.async {
                 vc.updateEvents(events)
+                vc.updateAttributionText(attribution)
             }
         })
-        let categories: [HomeComicFansCategory] = [
-            HomeComicFansCategory(title: .comics, image: nil),
-            HomeComicFansCategory(title: .characters, image: nil),
-            HomeComicFansCategory(title: .series, image: nil),
-            HomeComicFansCategory(title: .stories, image: nil),
-            HomeComicFansCategory(title: .events, image: nil),
-            HomeComicFansCategory(title: .creators, image: nil)
-
-        ]
+        let categories: [BrowseType] = [.characters, .comics, .creators, .events, .series, .stories]
         vc.updateCategories(categories)
+    }
+    
+    func homeMediatingControllerCategoryCellTapped(browseType: BrowseType) {
+        let factory = BrowseFactory()
+        let coordinator = factory.makeCoordinator(browseType: browseType, navigator: self.navigator)
+        let controller = factory.makeMediatingController(delegate: coordinator, screenTitle: browseType.rawValue.firstUppercased)
+        self.navigator?.pushViewController(controller, animated: true)
+    }
+    
+    func homeMediatingControllerEventTapped(event: DataSet, attribution: String?) {
+        let factory = DetailsFactory()
+        let coordinator = factory.makeCoordinator(dataSet: event, attribution: attribution)
+        let controller = factory.makeMediatingController(delegate: coordinator)
+        self.navigator?.pushViewController(controller, animated: true)
     }
 }

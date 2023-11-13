@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BrowseCollectionViewCell" id="XvL-Bw-iYJ" customClass="BrowseCollectionViewCell" customModule="ComicFans" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IjN-mn-kDt">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="api-On-nc1" customClass="ShadowView" customModule="ComicFans" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="284" height="384"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nRv-gX-2GZ">
+                                <rect key="frame" x="8" y="8" width="268" height="368"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ds-Pm-njo">
+                                        <rect key="frame" x="0.0" y="0.0" width="268" height="317.33333333333331"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mns-Ke-DJA">
+                                        <rect key="frame" x="0.0" y="325.33333333333331" width="268" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFG-q1-1Ss">
+                                        <rect key="frame" x="0.0" y="353.66666666666669" width="268" height="14.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nRv-gX-2GZ" firstAttribute="top" secondItem="api-On-nc1" secondAttribute="top" constant="8" id="4xS-fz-Lqy"/>
+                            <constraint firstItem="nRv-gX-2GZ" firstAttribute="leading" secondItem="api-On-nc1" secondAttribute="leading" constant="8" id="5XK-2B-oyT"/>
+                            <constraint firstAttribute="trailing" secondItem="nRv-gX-2GZ" secondAttribute="trailing" constant="8" id="Kq9-av-DSO"/>
+                            <constraint firstAttribute="bottom" secondItem="nRv-gX-2GZ" secondAttribute="bottom" constant="8" id="mf7-5Q-ARM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="api-On-nc1" firstAttribute="leading" secondItem="IjN-mn-kDt" secondAttribute="leading" constant="8" id="EDb-Ph-ywK"/>
+                    <constraint firstItem="api-On-nc1" firstAttribute="top" secondItem="IjN-mn-kDt" secondAttribute="top" constant="8" id="HGw-uB-Wce"/>
+                    <constraint firstAttribute="trailing" secondItem="api-On-nc1" secondAttribute="trailing" constant="8" id="Hhy-KR-ey8"/>
+                    <constraint firstAttribute="bottom" secondItem="api-On-nc1" secondAttribute="bottom" constant="8" id="t3b-RX-CAz"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <connections>
+                <outlet property="browseBackgroundView" destination="api-On-nc1" id="DYv-ba-keP"/>
+                <outlet property="browseDescription" destination="OFG-q1-1Ss" id="K5h-g4-LEx"/>
+                <outlet property="browseImage" destination="1Ds-Pm-njo" id="BJb-rf-tFq"/>
+                <outlet property="browseTitle" destination="mns-Ke-DJA" id="X0Y-kd-gYe"/>
+            </connections>
+            <point key="canvasLocation" x="109.9236641221374" y="30.985915492957748"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
