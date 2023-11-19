@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8320725D2B0AA50D001D3A94 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8320725C2B0AA50D001D3A94 /* Data+.swift */; };
 		8330F27B2AF8BB0E00AB79A0 /* HomeMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F27A2AF8BB0E00AB79A0 /* HomeMediatingControllerTests.swift */; };
 		8330F27D2AF8BBAC00AB79A0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F27C2AF8BBAC00AB79A0 /* UIView+.swift */; };
 		833198162AF88602008530BD /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833198152AF88602008530BD /* Downloader.swift */; };
@@ -24,6 +25,7 @@
 		83353C5A2AF9EC2B00726484 /* BrowseMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83353C592AF9EC2B00726484 /* BrowseMediatingController.xib */; };
 		83353C5C2AF9ECDD00726484 /* BrowseCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83353C5B2AF9ECDD00726484 /* BrowseCollectionView.xib */; };
 		83353C5E2AF9ECE400726484 /* BrowseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83353C5D2AF9ECE400726484 /* BrowseCollectionView.swift */; };
+		83423AF72B02F6E20090B476 /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83423AF62B02F6E20090B476 /* ProcessingView.swift */; };
 		83738D1B2AF7087D00F185FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83738D1A2AF7087D00F185FC /* AppDelegate.swift */; };
 		83738D1D2AF7087D00F185FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83738D1C2AF7087D00F185FC /* SceneDelegate.swift */; };
 		83738D1F2AF7087D00F185FC /* HomeMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83738D1E2AF7087D00F185FC /* HomeMediatingController.swift */; };
@@ -74,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8320725C2B0AA50D001D3A94 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		8330F27A2AF8BB0E00AB79A0 /* HomeMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMediatingControllerTests.swift; sourceTree = "<group>"; };
 		8330F27C2AF8BBAC00AB79A0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		833198152AF88602008530BD /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		83353C592AF9EC2B00726484 /* BrowseMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowseMediatingController.xib; sourceTree = "<group>"; };
 		83353C5B2AF9ECDD00726484 /* BrowseCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrowseCollectionView.xib; sourceTree = "<group>"; };
 		83353C5D2AF9ECE400726484 /* BrowseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseCollectionView.swift; sourceTree = "<group>"; };
+		83423AF62B02F6E20090B476 /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
 		83738D172AF7087D00F185FC /* ComicFans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicFans.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83738D1A2AF7087D00F185FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83738D1C2AF7087D00F185FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				833198232AF887EC008530BD /* KeyboardToolbar.swift */,
 				833198242AF887EC008530BD /* BiometricUnlock.swift */,
 				83A43D0F2B008BD70008A27E /* AppColors.swift */,
+				83423AF62B02F6E20090B476 /* ProcessingView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 				833198182AF88745008530BD /* UIImageView+.swift */,
 				833198262AF887EC008530BD /* UIPasteBoard+.swift */,
 				8330F27C2AF8BBAC00AB79A0 /* UIView+.swift */,
+				8320725C2B0AA50D001D3A94 /* Data+.swift */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 			files = (
 				833198292AF887EC008530BD /* OpenLink.swift in Sources */,
 				8331981B2AF88745008530BD /* UIImageView+.swift in Sources */,
+				8320725D2B0AA50D001D3A94 /* Data+.swift in Sources */,
 				83AE56072B005BA4003AFC13 /* DetailsMediatingController.swift in Sources */,
 				833198162AF88602008530BD /* Downloader.swift in Sources */,
 				83738D1F2AF7087D00F185FC /* HomeMediatingController.swift in Sources */,
@@ -464,6 +471,7 @@
 				83A9A0422AFA108600C1DE87 /* BrowseCoordinator.swift in Sources */,
 				83738D1B2AF7087D00F185FC /* AppDelegate.swift in Sources */,
 				83738D532AF70BAB00F185FC /* Thumbnail.swift in Sources */,
+				83423AF72B02F6E20090B476 /* ProcessingView.swift in Sources */,
 				8331982C2AF887EC008530BD /* UIPasteBoard+.swift in Sources */,
 				8331982E2AF89AE3008530BD /* APIKeys.swift in Sources */,
 				83353C582AF9EC1E00726484 /* BrowseMediatingController.swift in Sources */,
@@ -675,8 +683,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -684,9 +691,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IronHacker.ComicFans;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -704,8 +714,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -713,9 +722,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IronHacker.ComicFans;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

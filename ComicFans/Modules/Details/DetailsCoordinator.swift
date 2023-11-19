@@ -19,4 +19,20 @@ final class DetailsCoordinator: DetailsDelegate {
     func detailsMediatingControllerViewDidLoad(_ vc: DetailsDisplayable) {
         vc.setOutlets(data: self.dataSet, attribution: self.attribution)
     }
+    
+    func openMoreInfoLink() {
+        let appDelegate = UIApplication.shared
+        guard let urls = dataSet.urls else {
+            return
+        }
+        for urlPath in urls {
+            guard urlPath.url.isEmpty == false, let url = URL(string: urlPath.url) else {
+                continue
+            }
+            if appDelegate.canOpenURL(url) {
+                appDelegate.open(url)
+                return
+            }
+        }
+    }
 }

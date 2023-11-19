@@ -8,24 +8,24 @@
 import UIKit
 
 extension UIColor {
-    static func cream() -> UIColor {
-        let red: CGFloat = 247/255
-        let green: CGFloat = 210/255
-        let blue: CGFloat = 129/255
-        return UIColor(red: red, green: green, blue: blue, alpha: 1)
-    }
-    
-    static func darkBlue() -> UIColor {
-        let red: CGFloat = 0
-        let green: CGFloat = 50/255
-        let blue: CGFloat = 62/255
-        return UIColor(red: red, green: green, blue: blue, alpha: 1)
-    }
-    
-    static func darkRed() -> UIColor {
+    static func marvelRed() -> UIColor {
         let red: CGFloat = 144/255
         let green: CGFloat = 39/255
-        let blue: CGFloat = 36/255
+        let blue: CGFloat = 35/255
+        return UIColor(red: red, green: green, blue: blue, alpha: 1)
+    }
+    
+    static func darkGrey() -> UIColor {
+        let red: CGFloat = 80/255
+        let green: CGFloat = 74/255
+        let blue: CGFloat = 74/255
+        return UIColor(red: red, green: green, blue: blue, alpha: 1)
+    }
+    
+    static func orange() -> UIColor {
+        let red: CGFloat = 247/255
+        let green: CGFloat = 143/255
+        let blue: CGFloat = 63/255
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
 }

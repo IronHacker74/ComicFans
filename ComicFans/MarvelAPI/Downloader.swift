@@ -16,6 +16,12 @@ enum DownloadParameterType: String {
     case offset = "offset"
     case name = "name"
     case nameStartsWith = "nameStartsWith"
+    case titleStartsWith = "titleStartsWith"
+    case comics = "comics"
+    case characters = "characters"
+    case creators = "creators"
+    case events = "events"
+    case series = "series"
 }
 
 enum OrderByType: String {

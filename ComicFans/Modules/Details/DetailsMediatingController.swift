@@ -9,6 +9,7 @@ import UIKit
 
 protocol DetailsDelegate {
     func detailsMediatingControllerViewDidLoad(_ vc: DetailsDisplayable)
+    func openMoreInfoLink()
 }
 
 protocol DetailsDisplayable {
@@ -35,12 +36,17 @@ final class DetailsMediatingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-        self.view.backgroundColor = .darkBlue()
+        self.view.backgroundColor = .darkGrey()
         self.delegate?.detailsMediatingControllerViewDidLoad(self)
     }
     
+    func setupMoreInfoNavigationItem() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(self.didTouchWebLinkBtn))
+        self.navigationItem.rightBarButtonItem?.tintColor = .orange()
+    }
+    
     func setupTableView() {
-        self.tableview.backgroundColor = .cream()
+        self.tableview.backgroundColor = .marvelRed()
         self.tableview.delegate = self
         self.tableview.dataSource = self
         self.tableview.register(UINib(nibName: "DetailsTableViewCell", bundle: nil), forCellReuseIdentifier: self.cell)
@@ -52,10 +58,17 @@ final class DetailsMediatingController: UIViewController {
         }
         return true
     }
+    
+    @objc func didTouchWebLinkBtn() {
+        self.delegate?.openMoreInfoLink()
+    }
 }
 
 extension DetailsMediatingController: DetailsDisplayable {
     func setOutlets(data: DataSet, attribution: String?) {
+        if let urls = data.urls, urls.isEmpty == false {
+            self.setupMoreInfoNavigationItem()
+        }
         self.navigationItem.title = data.getTitle()
         self.setupImage(data.image)
         self.attributionLabel.text = attribution
@@ -118,7 +131,7 @@ extension DetailsMediatingController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .systemGray
+        header.textLabel?.textColor = .label
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

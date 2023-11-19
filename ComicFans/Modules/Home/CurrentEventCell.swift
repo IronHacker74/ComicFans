@@ -15,7 +15,7 @@ final class CurrentEventCell: UITableViewCell, UIViewLoading {
     
     func configureCell(event: DataSet) {
         self.backgroundColor = .clear
-        self.eventBackground.backgroundColor = .cream()
+        self.eventBackground.backgroundColor = .marvelRed()
         self.titleLabel.text = event.title
         self.descriptionLabel.text = event.description
     }

@@ -8,9 +8,10 @@
 import UIKit
 
 protocol HomeDelegate {
-    func homeMediatingControllerViewDidLoad(_ vc: HomeDisplayable, offset: Int)
+    func homeMediatingControllerViewDidLoad(_ vc: HomeDisplayable)
     func homeMediatingControllerCategoryCellTapped(browseType: BrowseType)
     func homeMediatingControllerEventTapped(event: DataSet, attribution: String?)
+    func homeMediatingControllerLoadMoreEvents(_ vc: HomeDisplayable, offset: Int)
 }
 
 protocol HomeDisplayable {
@@ -36,10 +37,10 @@ class HomeMediatingController: UIViewController, UIViewLoading {
         self.overrideUserInterfaceStyle = .dark
         self.delegate = HomeCoordinator(request: CurrentEventRequest(), navigator: self.navigationController)
         self.navigationItem.title = "ComicFans"
-        self.view.backgroundColor = .darkBlue()
+        self.view.backgroundColor = .darkGrey()
         self.setupTableView()
         self.setupCollectionView()
-        self.delegate?.homeMediatingControllerViewDidLoad(self, offset: 0)
+        self.delegate?.homeMediatingControllerViewDidLoad(self)
     }
 
     private func setupTableView() {
@@ -79,16 +80,22 @@ extension HomeMediatingController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: self.tableviewIdentifier, for: indexPath) as? CurrentEventCell else {
             return UITableViewCell()
         }
-        let event = self.events[indexPath.row]
+        var event = self.events[indexPath.row]
         cell.configureCell(event: event)
         cell.configureImage(image: event.image, imagePath: event.thumbnail?.fullPath, completion: { image in
-            self.events[indexPath.row].image = image
+            event.image = image
         })
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.homeMediatingControllerEventTapped(event: self.events[indexPath.row], attribution: self.attributionLabel.text)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row > (self.events.count - 10) {
+            self.delegate?.homeMediatingControllerLoadMoreEvents(self, offset: self.events.count)
+        }
     }
 }
 
