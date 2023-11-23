@@ -8,8 +8,8 @@
 import Foundation
 
 final class BrowseRequest {
-    let downloader: Downloader
-    let browseType: BrowseType
+    private let downloader: Downloader
+    private let browseType: BrowseType
     
     init(downloader: Downloader = Downloader(), browseType: BrowseType) {
         self.downloader = downloader

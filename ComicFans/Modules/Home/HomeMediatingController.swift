@@ -14,7 +14,7 @@ protocol HomeDelegate {
     func homeMediatingControllerLoadMoreEvents(_ vc: HomeDisplayable, offset: Int)
 }
 
-protocol HomeDisplayable {
+protocol HomeDisplayable: ProcessingView {
     func updateEvents(_ newEvents: [DataSet])
     func updateCategories(_ newCategories: [BrowseType])
     func updateAttributionText(_ text: String?)
@@ -69,6 +69,15 @@ extension HomeMediatingController: HomeDisplayable {
     func updateAttributionText(_ text: String?) {
         self.attributionLabel.text = text
     }
+    
+    func finishProcessing() {
+        self.finishProcessing(self.view)
+    }
+    
+    func beginProcessing() {
+        self.beginProcessing(self.view)
+    }
+    
 }
 
 extension HomeMediatingController: UITableViewDelegate, UITableViewDataSource {
@@ -83,13 +92,14 @@ extension HomeMediatingController: UITableViewDelegate, UITableViewDataSource {
         var event = self.events[indexPath.row]
         cell.configureCell(event: event)
         cell.configureImage(image: event.image, imagePath: event.thumbnail?.fullPath, completion: { image in
-            event.image = image
+            self.events[indexPath.row].image = image
         })
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.homeMediatingControllerEventTapped(event: self.events[indexPath.row], attribution: self.attributionLabel.text)
+        self.tableview.deselectRow(at: indexPath, animated: false)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

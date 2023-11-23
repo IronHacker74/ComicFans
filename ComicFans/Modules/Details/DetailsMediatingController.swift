@@ -9,10 +9,11 @@ import UIKit
 
 protocol DetailsDelegate {
     func detailsMediatingControllerViewDidLoad(_ vc: DetailsDisplayable)
+    func detailsMediatingControllerDidSelectRow(detailsPath: String)
     func openMoreInfoLink()
 }
 
-protocol DetailsDisplayable {
+protocol DetailsDisplayable: ProcessingView {
     func setOutlets(data: DataSet, attribution: String?)
 }
 
@@ -65,12 +66,20 @@ final class DetailsMediatingController: UIViewController {
 }
 
 extension DetailsMediatingController: DetailsDisplayable {
+    func beginProcessing() {
+        self.beginProcessing(self.view)
+    }
+    
+    func finishProcessing() {
+        self.finishProcessing(self.view)
+    }
+    
     func setOutlets(data: DataSet, attribution: String?) {
         if let urls = data.urls, urls.isEmpty == false {
             self.setupMoreInfoNavigationItem()
         }
         self.navigationItem.title = data.getTitle()
-        self.setupImage(data.image)
+        self.setupImage(data.image, imagePath: data.thumbnail?.fullPath)
         self.attributionLabel.text = attribution
         self.addDescription(data.description)
         self.addToDetails(additionalItems: data.characters, browseType: .characters)
@@ -82,23 +91,29 @@ extension DetailsMediatingController: DetailsDisplayable {
         self.tableview.reloadData()
     }
     
-    private func setupImage(_ image: UIImage?) {
+    private func setupImage(_ image: UIImage?, imagePath: String?) {
         guard let image else {
-            // TODO: implement for uiview
-//            self.browseImage.downloaded(from: imagePath, contentMode: .scaleAspectFill, completion: { image in
-//                self.setupTableViewImageHeader(image)
-//            })
+            self.downloadImage(imagePath: imagePath)
             return
         }
         self.setupTableViewImageHeader(image)
+    }
+    
+    private func downloadImage(imagePath: String?) {
+        guard let imagePath else { return }
+        let imageView = UIImageView()
+        imageView.downloaded(from: imagePath, contentMode: .scaleAspectFill, completion: { image in
+            guard let image else { return }
+            self.setupImage(image, imagePath: nil)
+        })
     }
     
     private func setupTableViewImageHeader(_ image: UIImage) {
         let heightMultiple = self.view.frame.size.width / image.size.width
         let height = image.size.height * heightMultiple
         
-        var frame = CGRectMake(0, 0, self.view.frame.size.width, height)
-        var headerImageView = UIImageView(frame: frame)
+        let frame = CGRectMake(0, 0, self.view.frame.size.width, height)
+        let headerImageView = UIImageView(frame: frame)
         headerImageView.image = image
         self.tableview.tableHeaderView = headerImageView
     }
@@ -147,5 +162,12 @@ extension DetailsMediatingController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let itemURI = self.details[indexPath.section].items[indexPath.row].resourceURI else {
+            self.tableview.deselectRow(at: indexPath, animated: false)
+            return
+        }
+        self.delegate?.detailsMediatingControllerDidSelectRow(detailsPath: itemURI)
+        self.tableview.deselectRow(at: indexPath, animated: false)
+    }
 }

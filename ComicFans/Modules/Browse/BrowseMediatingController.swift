@@ -65,7 +65,7 @@ final class BrowseMediatingController: UIViewController {
         self.searchbar.delegate = self
         self.searchbar.barTintColor = .orange()
         self.searchbar.tintColor = .white
-        self.searchbar.inputAccessoryView = KeyboardToolBar(view: self.view, textFieldTag: 0, showDirectionalArrows: false)
+        self.searchbar.inputAccessoryView = KeyboardToolBar(view: self.view, textFieldTag: 1, showDirectionalArrows: false)
     }
     
     @IBAction func didTouchSingleViewButton(_ sender: UIButton) {

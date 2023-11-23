@@ -40,7 +40,7 @@ class BrowseCoordinator: BrowseDelegate {
     
     func browseCollectionViewCellTapped(dataSet: DataSet, attribution: String?) {
         let factory = DetailsFactory()
-        let coordinator = factory.makeCoordinator(dataSet: dataSet, attribution: attribution)
+        let coordinator = factory.makeCoordinator(dataSet: dataSet, attribution: attribution, detailsPath: nil, navigator: self.navigator)
         let controller = factory.makeMediatingController(delegate: coordinator)
         self.navigator?.pushViewController(controller, animated: true)
     }
