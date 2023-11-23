@@ -15,17 +15,17 @@ extension UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
     
-    static func darkGrey() -> UIColor {
-        let red: CGFloat = 80/255
-        let green: CGFloat = 74/255
-        let blue: CGFloat = 74/255
+    static func darkBlue() -> UIColor {
+        let red: CGFloat = 15/255
+        let green: CGFloat = 27/255
+        let blue: CGFloat = 33/255
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
     
-    static func orange() -> UIColor {
-        let red: CGFloat = 247/255
-        let green: CGFloat = 143/255
-        let blue: CGFloat = 63/255
+    static func mediumBlue() -> UIColor {
+        let red: CGFloat = 93/255
+        let green: CGFloat = 139/255
+        let blue: CGFloat = 162/255
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
 }

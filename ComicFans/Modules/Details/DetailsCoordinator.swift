@@ -50,8 +50,7 @@ final class DetailsCoordinator: DetailsDelegate {
         self.navigator?.pushViewController(controller, animated: true)
     }
     
-    func openMoreInfoLink() {
-        let appDelegate = UIApplication.shared
+    func shareInfoLink() {
         guard let urls = dataSet?.urls else {
             return
         }
@@ -59,9 +58,10 @@ final class DetailsCoordinator: DetailsDelegate {
             guard urlPath.url.isEmpty == false, let url = URL(string: urlPath.url) else {
                 continue
             }
-            if appDelegate.canOpenURL(url) {
-                appDelegate.open(url)
-                return
+            if UIApplication.shared.canOpenURL(url) {
+                let controller = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                self.navigator?.present(controller, animated: true)
+                break
             }
         }
     }

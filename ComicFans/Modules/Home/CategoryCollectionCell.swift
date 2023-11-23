@@ -13,7 +13,7 @@ final class CategoryCollectionCell: UICollectionViewCell, UIViewLoading {
     
     func configureCell(title: String) {
         self.backgroundColor = .clear
-        self.categoryBackground.backgroundColor = .orange()
+        self.categoryBackground.backgroundColor = .mediumBlue()
         self.title.text = title
     }
 }

@@ -50,10 +50,10 @@ final class BrowseMediatingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSearchBar()
-        self.view.backgroundColor = .darkGrey()
+        self.view.backgroundColor = .darkBlue()
         self.navigationItem.title = self.screenTitle
-        self.singleViewButton.tintColor = .orange()
-        self.multiViewButton.tintColor = .orange()
+        self.singleViewButton.tintColor = .mediumBlue()
+        self.multiViewButton.tintColor = .mediumBlue()
         self.delegate?.browseViewDidLoad(self)
     }
     
@@ -63,9 +63,7 @@ final class BrowseMediatingController: UIViewController {
     
     private func setupSearchBar() {
         self.searchbar.delegate = self
-        self.searchbar.barTintColor = .orange()
         self.searchbar.tintColor = .white
-        self.searchbar.inputAccessoryView = KeyboardToolBar(view: self.view, textFieldTag: 1, showDirectionalArrows: false)
     }
     
     @IBAction func didTouchSingleViewButton(_ sender: UIButton) {

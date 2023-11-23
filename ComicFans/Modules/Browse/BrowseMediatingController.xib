@@ -23,8 +23,9 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar tag="1" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="R4F-dt-GJ2">
+                <searchBar tag="1" contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4F-dt-GJ2">
                     <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-oe-1SF">

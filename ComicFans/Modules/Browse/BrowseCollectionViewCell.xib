@@ -28,29 +28,38 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ubf-GI-ank">
-                                <rect key="frame" x="0.0" y="0.0" width="284" height="87.333333333333329"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="mns-Ke-DJA">
-                                        <rect key="frame" x="8" y="59.000000000000007" width="268" height="20.333333333333336"/>
-                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.68791429920000002" green="0.22504379799999999" blue="0.1798966145" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                            </stackView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3A-VB-CcC">
+                                <rect key="frame" x="0.0" y="343.33333333333331" width="284" height="40.666666666666686"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VhW-Iu-Y4Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="284" height="41"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="mns-Ke-DJA">
+                                            <rect key="frame" x="8" y="8.0000000000000018" width="268" height="24.666666666666671"/>
+                                            <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="mns-Ke-DJA" secondAttribute="trailing" constant="8" id="Xl8-qo-X6a"/>
+                                        <constraint firstAttribute="bottom" secondItem="mns-Ke-DJA" secondAttribute="bottom" constant="8" id="bNq-lW-7wo"/>
+                                        <constraint firstItem="mns-Ke-DJA" firstAttribute="leading" secondItem="VhW-Iu-Y4Y" secondAttribute="leading" constant="8" id="zTg-pJ-dbL"/>
+                                        <constraint firstItem="mns-Ke-DJA" firstAttribute="top" secondItem="VhW-Iu-Y4Y" secondAttribute="top" constant="8" id="zVh-aF-8ul"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ubf-GI-ank" firstAttribute="top" secondItem="api-On-nc1" secondAttribute="top" id="1JB-Xv-XlH"/>
                             <constraint firstItem="1Ds-Pm-njo" firstAttribute="top" secondItem="api-On-nc1" secondAttribute="top" id="2iJ-Hr-AVi"/>
-                            <constraint firstItem="ubf-GI-ank" firstAttribute="leading" secondItem="api-On-nc1" secondAttribute="leading" id="FjY-Qq-WCB"/>
+                            <constraint firstItem="P3A-VB-CcC" firstAttribute="leading" secondItem="api-On-nc1" secondAttribute="leading" id="CEm-Mr-LLH"/>
                             <constraint firstAttribute="trailing" secondItem="1Ds-Pm-njo" secondAttribute="trailing" id="bim-84-VlV"/>
-                            <constraint firstAttribute="trailing" secondItem="ubf-GI-ank" secondAttribute="trailing" id="dUu-JQ-Ivz"/>
+                            <constraint firstAttribute="trailing" secondItem="P3A-VB-CcC" secondAttribute="trailing" id="ck3-pA-O47"/>
                             <constraint firstItem="1Ds-Pm-njo" firstAttribute="leading" secondItem="api-On-nc1" secondAttribute="leading" id="dlG-2m-alh"/>
                             <constraint firstAttribute="bottom" secondItem="1Ds-Pm-njo" secondAttribute="bottom" id="ldO-IX-zDh"/>
+                            <constraint firstAttribute="bottom" secondItem="P3A-VB-CcC" secondAttribute="bottom" id="rCv-Nl-ogd"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

@@ -10,7 +10,7 @@ import UIKit
 protocol DetailsDelegate {
     func detailsMediatingControllerViewDidLoad(_ vc: DetailsDisplayable)
     func detailsMediatingControllerDidSelectRow(detailsPath: String)
-    func openMoreInfoLink()
+    func shareInfoLink()
 }
 
 protocol DetailsDisplayable: ProcessingView {
@@ -37,17 +37,16 @@ final class DetailsMediatingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-        self.view.backgroundColor = .darkGrey()
+        self.view.backgroundColor = .darkBlue()
         self.delegate?.detailsMediatingControllerViewDidLoad(self)
     }
     
     func setupMoreInfoNavigationItem() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(self.didTouchWebLinkBtn))
-        self.navigationItem.rightBarButtonItem?.tintColor = .orange()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(self.didTouchShareLink))
+        self.navigationItem.rightBarButtonItem?.tintColor = .mediumBlue()
     }
     
     func setupTableView() {
-        self.tableview.backgroundColor = .marvelRed()
         self.tableview.delegate = self
         self.tableview.dataSource = self
         self.tableview.register(UINib(nibName: "DetailsTableViewCell", bundle: nil), forCellReuseIdentifier: self.cell)
@@ -60,8 +59,8 @@ final class DetailsMediatingController: UIViewController {
         return true
     }
     
-    @objc func didTouchWebLinkBtn() {
-        self.delegate?.openMoreInfoLink()
+    @objc func didTouchShareLink() {
+        self.delegate?.shareInfoLink()
     }
 }
 

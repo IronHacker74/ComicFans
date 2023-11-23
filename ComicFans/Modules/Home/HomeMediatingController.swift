@@ -37,7 +37,7 @@ class HomeMediatingController: UIViewController, UIViewLoading {
         self.overrideUserInterfaceStyle = .dark
         self.delegate = HomeCoordinator(request: CurrentEventRequest(), navigator: self.navigationController)
         self.navigationItem.title = "ComicFans"
-        self.view.backgroundColor = .darkGrey()
+        self.view.backgroundColor = .darkBlue()
         self.setupTableView()
         self.setupCollectionView()
         self.delegate?.homeMediatingControllerViewDidLoad(self)
