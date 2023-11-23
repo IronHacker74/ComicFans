@@ -14,6 +14,8 @@ struct HomeComicFansCategory {
 
 final class HomeCoordinator: HomeDelegate {
     private let request: CurrentEventRequest
+    private var downloadComplete: Bool = false
+    private var isDownloading: Bool = false
     private let limit: Int = 20
     private let navigator: UINavigationController?
     
@@ -22,13 +24,18 @@ final class HomeCoordinator: HomeDelegate {
         self.navigator = navigator
     }
     
-    func homeMediatingControllerViewDidLoad(_ vc: HomeDisplayable, offset: Int) {
-        self.request.getCurrentEvents(limit: self.limit, offset: offset, completion: {events, attribution, error in
+    func homeMediatingControllerViewDidLoad(_ vc: HomeDisplayable) {
+        guard !self.isDownloading else { return }
+        self.isDownloading = true
+        vc.beginProcessing()
+        self.request.getCurrentEvents(limit: self.limit, offset: 0, completion: {events, attribution, error in
+            self.isDownloading = false
             guard let events else {
                 //TODO: do something with error
                 return
             }
             DispatchQueue.main.async {
+                vc.finishProcessing()
                 vc.updateEvents(events)
                 vc.updateAttributionText(attribution)
             }
@@ -46,8 +53,27 @@ final class HomeCoordinator: HomeDelegate {
     
     func homeMediatingControllerEventTapped(event: DataSet, attribution: String?) {
         let factory = DetailsFactory()
-        let coordinator = factory.makeCoordinator(dataSet: event, attribution: attribution)
+        let coordinator = factory.makeCoordinator(dataSet: event, attribution: attribution, detailsPath: nil, navigator: self.navigator)
         let controller = factory.makeMediatingController(delegate: coordinator)
         self.navigator?.pushViewController(controller, animated: true)
+    }
+    
+    func homeMediatingControllerLoadMoreEvents(_ vc: HomeDisplayable, offset: Int) {
+        guard !self.downloadComplete else { return }
+        guard !self.isDownloading else { return }
+        self.isDownloading = true
+        self.request.getCurrentEvents(limit: self.limit, offset: offset, completion: { events, _, error in
+            self.isDownloading = false
+            guard let events else {
+                //TODO: do something with error
+                return
+            }
+            DispatchQueue.main.async {
+                if events.count < self.limit {
+                    self.downloadComplete = true
+                }
+                vc.updateEvents(events)
+            }
+        })
     }
 }

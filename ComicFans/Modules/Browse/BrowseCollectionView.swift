@@ -45,4 +45,10 @@ final class BrowseCollectionView: UICollectionView, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.browseDelegate?.collectionViewCellTapped(dataSet: self.browseData[indexPath.row])
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row > (self.browseData.count - 10) {
+            self.browseDelegate?.collectionViewContinueDownload(offset: self.browseData.count)
+        }
+    }
 }

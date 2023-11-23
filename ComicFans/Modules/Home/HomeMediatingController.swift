@@ -8,12 +8,13 @@
 import UIKit
 
 protocol HomeDelegate {
-    func homeMediatingControllerViewDidLoad(_ vc: HomeDisplayable, offset: Int)
+    func homeMediatingControllerViewDidLoad(_ vc: HomeDisplayable)
     func homeMediatingControllerCategoryCellTapped(browseType: BrowseType)
     func homeMediatingControllerEventTapped(event: DataSet, attribution: String?)
+    func homeMediatingControllerLoadMoreEvents(_ vc: HomeDisplayable, offset: Int)
 }
 
-protocol HomeDisplayable {
+protocol HomeDisplayable: ProcessingView {
     func updateEvents(_ newEvents: [DataSet])
     func updateCategories(_ newCategories: [BrowseType])
     func updateAttributionText(_ text: String?)
@@ -39,7 +40,7 @@ class HomeMediatingController: UIViewController, UIViewLoading {
         self.view.backgroundColor = .darkBlue()
         self.setupTableView()
         self.setupCollectionView()
-        self.delegate?.homeMediatingControllerViewDidLoad(self, offset: 0)
+        self.delegate?.homeMediatingControllerViewDidLoad(self)
     }
 
     private func setupTableView() {
@@ -68,6 +69,15 @@ extension HomeMediatingController: HomeDisplayable {
     func updateAttributionText(_ text: String?) {
         self.attributionLabel.text = text
     }
+    
+    func finishProcessing() {
+        self.finishProcessing(self.view)
+    }
+    
+    func beginProcessing() {
+        self.beginProcessing(self.view)
+    }
+    
 }
 
 extension HomeMediatingController: UITableViewDelegate, UITableViewDataSource {
@@ -79,7 +89,7 @@ extension HomeMediatingController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: self.tableviewIdentifier, for: indexPath) as? CurrentEventCell else {
             return UITableViewCell()
         }
-        let event = self.events[indexPath.row]
+        var event = self.events[indexPath.row]
         cell.configureCell(event: event)
         cell.configureImage(image: event.image, imagePath: event.thumbnail?.fullPath, completion: { image in
             self.events[indexPath.row].image = image
@@ -89,6 +99,13 @@ extension HomeMediatingController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.homeMediatingControllerEventTapped(event: self.events[indexPath.row], attribution: self.attributionLabel.text)
+        self.tableview.deselectRow(at: indexPath, animated: false)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row > (self.events.count - 10) {
+            self.delegate?.homeMediatingControllerLoadMoreEvents(self, offset: self.events.count)
+        }
     }
 }
 

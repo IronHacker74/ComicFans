@@ -16,6 +16,12 @@ enum DownloadParameterType: String {
     case offset = "offset"
     case name = "name"
     case nameStartsWith = "nameStartsWith"
+    case titleStartsWith = "titleStartsWith"
+    case comics = "comics"
+    case characters = "characters"
+    case creators = "creators"
+    case events = "events"
+    case series = "series"
 }
 
 enum OrderByType: String {
@@ -34,7 +40,9 @@ final class Downloader {
     }
     private let apiKeys = APIKeys()
     
-    func getRequest(endPoint: String, parameters: [DownloadParameterType: String], completion: @escaping (Data?, Error?) -> Void) {
+    func getRequest(endPoint: String, parameters: [DownloadParameterType: String], needBaseURL: Bool = true, completion: @escaping (Data?, Error?) -> Void) {
+        let urlPath = needBaseURL ? self.baseURL + endPoint : endPoint
+        
         let localTimeStamp = self.timestamp
         let hashedAPI = (localTimeStamp+self.apiKeys.privateKey+self.apiKeys.publicKey).MD5
         var localParameters: [DownloadParameterType: String] = parameters
@@ -42,7 +50,7 @@ final class Downloader {
         localParameters[.apiKey] = self.apiKeys.publicKey
         localParameters[.hashedAPI] = hashedAPI
         
-        self.request(url: self.baseURL + endPoint, parameters: localParameters, completion: completion)
+        self.request(url: urlPath, parameters: localParameters, completion: completion)
     }
     
     private func request(url: String, parameters: [DownloadParameterType: String], completion: @escaping (Data?, Error?) -> Void) {
