@@ -13,7 +13,7 @@ protocol DetailsDelegate {
     func shareInfoLink()
 }
 
-protocol DetailsDisplayable: ProcessingView {
+protocol DetailsDisplayable: UIViewLoading, ProcessingView, ErrorAlert {
     func setOutlets(data: DataSet, attribution: String?)
 }
 

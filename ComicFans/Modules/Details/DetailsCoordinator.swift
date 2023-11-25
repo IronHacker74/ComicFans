@@ -29,12 +29,11 @@ final class DetailsCoordinator: DetailsDelegate {
             vc.beginProcessing()
             detailsRequest.getDetails(urlpath: detailsURLPath, completion: { details, attributionText, error in
                 DispatchQueue.main.async {
+                    vc.finishProcessing()
                     guard let details, error == nil else {
-                        // TODO: place error
+                        vc.presentErrorAlert()
                         return
                     }
-                    vc.finishProcessing()
-                    
                     self.dataSet = details
                     self.attribution = attributionText
                     vc.setOutlets(data: details, attribution: attributionText)

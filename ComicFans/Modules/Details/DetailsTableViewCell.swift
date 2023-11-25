@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DetailsTableViewCell: UITableViewCell {
+final class DetailsTableViewCell: UITableViewCell, UIViewLoading {
     @IBOutlet private (set) var label: UILabel!
     
     func configureCell(text: String?) {

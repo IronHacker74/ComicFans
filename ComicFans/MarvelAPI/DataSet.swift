@@ -71,12 +71,13 @@ struct DataSet: Decodable {
         self.urls = try? container.decode([URLItem].self, forKey: .urls)
     }
     
-    init(id: Int?, name: String?, title: String?, description: String?, thumbnail: Thumbnail){
+    init(id: Int?, name: String?, title: String?, description: String?, thumbnail: Thumbnail, urls: [URLItem]){
         self.id = id
         self.name = name
         self.title = title
         self.description = description
         self.thumbnail = thumbnail
+        self.urls = urls
     }
     
     func getTitle() -> String? {

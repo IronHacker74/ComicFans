@@ -45,8 +45,7 @@ final class BrowseRequest {
                 let results = try JSONDecoder().decode(APIData.self, from: data)
                 completion(results.data.results, results.attributionText, nil)
             } catch {
-                // TODO: Return an error type
-                completion(nil, nil, nil)
+                completion(nil, nil, error)
             }
         })
         
