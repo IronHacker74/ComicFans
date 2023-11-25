@@ -29,13 +29,13 @@ final class HomeCoordinator: HomeDelegate {
         self.isDownloading = true
         vc.beginProcessing()
         self.request.getCurrentEvents(limit: self.limit, offset: 0, completion: {events, attribution, error in
-            self.isDownloading = false
-            guard let events else {
-                //TODO: do something with error
-                return
-            }
             DispatchQueue.main.async {
+                self.isDownloading = false
                 vc.finishProcessing()
+                guard let events else {
+                    vc.presentErrorAlert()
+                    return
+                }
                 vc.updateEvents(events)
                 vc.updateAttributionText(attribution)
             }
@@ -62,13 +62,15 @@ final class HomeCoordinator: HomeDelegate {
         guard !self.downloadComplete else { return }
         guard !self.isDownloading else { return }
         self.isDownloading = true
+        vc.beginProcessing()
         self.request.getCurrentEvents(limit: self.limit, offset: offset, completion: { events, _, error in
-            self.isDownloading = false
-            guard let events else {
-                //TODO: do something with error
-                return
-            }
             DispatchQueue.main.async {
+                self.isDownloading = false
+                vc.finishProcessing()
+                guard let events else {
+                    vc.presentErrorAlert()
+                    return
+                }
                 if events.count < self.limit {
                     self.downloadComplete = true
                 }

@@ -13,10 +13,9 @@ protocol BrowseDelegate {
     func browseDownloadMoreData(_ vc: BrowseDisplayable, searchText: String?, offset: Int)
 }
 
-protocol BrowseDisplayable: BrowseCollectionViewDelegate, ProcessingView {
+protocol BrowseDisplayable: UIViewLoading, BrowseCollectionViewDelegate, ProcessingView, ErrorAlert {
     func appendToBrowseCollectionViewData(_ data: [DataSet])
     func updateAttributionText(_ text: String?)
-    func setupCollectionview()
     func collectionViewCellTapped(dataSet: DataSet)
 }
 
@@ -50,6 +49,7 @@ final class BrowseMediatingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSearchBar()
+        self.setupCollectionview()
         self.view.backgroundColor = .darkBlue()
         self.navigationItem.title = self.screenTitle
         self.singleViewButton.tintColor = .mediumBlue()
@@ -64,6 +64,12 @@ final class BrowseMediatingController: UIViewController {
     private func setupSearchBar() {
         self.searchbar.delegate = self
         self.searchbar.tintColor = .white
+    }
+    
+    private func setupCollectionview() {
+        let collectionview = BrowseCollectionView(browseDelegate: self)
+        collectionview.backgroundColor = .clear
+        self.browseContentView.addArrangedSubview(collectionview)
     }
     
     @IBAction func didTouchSingleViewButton(_ sender: UIButton) {
@@ -91,13 +97,6 @@ final class BrowseMediatingController: UIViewController {
 }
 
 extension BrowseMediatingController: BrowseDisplayable {
-    
-    func setupCollectionview() {
-        let collectionview = BrowseCollectionView(browseDelegate: self)
-        collectionview.backgroundColor = .clear
-        self.browseContentView.addArrangedSubview(collectionview)
-    }
-    
     func appendToBrowseCollectionViewData(_ data: [DataSet]) {
         if let collectionview = browseContentView.subviews.first(where: { $0 is BrowseCollectionView }) as? BrowseCollectionView {
             collectionview.browseData.append(contentsOf: data)

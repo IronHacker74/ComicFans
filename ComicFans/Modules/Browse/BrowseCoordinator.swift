@@ -20,17 +20,16 @@ class BrowseCoordinator: BrowseDelegate {
     }
     
     func browseViewDidLoad(_ vc: BrowseDisplayable) {
-        vc.setupCollectionview()
         guard isDownloading == false else { return }
         vc.beginProcessing()
         self.isDownloading = true
         self.request.getBrowse(orderBy: .name, limit: self.limit, offset: 0, completion: { results, attribution, error in
-            self.isDownloading = false
-            guard let results, error == nil else {
-                // TODO: show error
-                return
-            }
             DispatchQueue.main.async {
+                self.isDownloading = false
+                guard let results, error == nil else {
+                    vc.presentErrorAlert()
+                    return
+                }
                 vc.finishProcessing()
                 vc.appendToBrowseCollectionViewData(results)
                 vc.updateAttributionText(attribution)
@@ -54,16 +53,16 @@ class BrowseCoordinator: BrowseDelegate {
         vc.beginProcessing()
         self.isDownloading = true
         self.request.getBrowse(search: searchText ?? "", orderBy: .name, limit: self.limit, offset: offset, completion: { results, attribution, error in
-            self.isDownloading = false
-            guard let results, error == nil else {
-                // TODO: show error
-                return
-            }
             DispatchQueue.main.async {
+                self.isDownloading = false
+                vc.finishProcessing()
+                guard let results, error == nil else {
+                    vc.presentErrorAlert()
+                    return
+                }
                 if results.count < self.limit {
                     self.downloadComplete = true
                 }
-                vc.finishProcessing()
                 vc.appendToBrowseCollectionViewData(results)
             }
         })

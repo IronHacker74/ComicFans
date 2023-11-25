@@ -29,8 +29,7 @@ final class CurrentEventRequest {
                 let eventData = try JSONDecoder().decode(APIData.self, from: data)
                 completion(eventData.data.results, eventData.attributionText,  nil)
             } catch {
-                // TODO: Add a specific error type here
-                completion(nil, nil, nil)
+                completion(nil, nil, error)
             }
         })
     }

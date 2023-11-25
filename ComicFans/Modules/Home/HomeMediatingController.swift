@@ -14,14 +14,13 @@ protocol HomeDelegate {
     func homeMediatingControllerLoadMoreEvents(_ vc: HomeDisplayable, offset: Int)
 }
 
-protocol HomeDisplayable: ProcessingView {
+protocol HomeDisplayable: ProcessingView, ErrorAlert {
     func updateEvents(_ newEvents: [DataSet])
     func updateCategories(_ newCategories: [BrowseType])
     func updateAttributionText(_ text: String?)
 }
 
 class HomeMediatingController: UIViewController, UIViewLoading {
-
     @IBOutlet private (set) var collectionview: UICollectionView!
     @IBOutlet private (set) var tableview: UITableView!
     @IBOutlet private (set) var attributionLabel: UILabel!
@@ -34,13 +33,17 @@ class HomeMediatingController: UIViewController, UIViewLoading {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.overrideUserInterfaceStyle = .dark
         self.delegate = HomeCoordinator(request: CurrentEventRequest(), navigator: self.navigationController)
-        self.navigationItem.title = "ComicFans"
-        self.view.backgroundColor = .darkBlue()
+        self.setupViewController()
         self.setupTableView()
         self.setupCollectionView()
         self.delegate?.homeMediatingControllerViewDidLoad(self)
+    }
+    
+    private func setupViewController() {
+        self.overrideUserInterfaceStyle = .dark
+        self.navigationItem.title = "ComicFans"
+        self.view.backgroundColor = .darkBlue()
     }
 
     private func setupTableView() {
@@ -70,6 +73,7 @@ extension HomeMediatingController: HomeDisplayable {
         self.attributionLabel.text = text
     }
     
+    // MARK: - ProcessingView
     func finishProcessing() {
         self.finishProcessing(self.view)
     }
@@ -77,7 +81,6 @@ extension HomeMediatingController: HomeDisplayable {
     func beginProcessing() {
         self.beginProcessing(self.view)
     }
-    
 }
 
 extension HomeMediatingController: UITableViewDelegate, UITableViewDataSource {
@@ -89,7 +92,7 @@ extension HomeMediatingController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: self.tableviewIdentifier, for: indexPath) as? CurrentEventCell else {
             return UITableViewCell()
         }
-        var event = self.events[indexPath.row]
+        let event = self.events[indexPath.row]
         cell.configureCell(event: event)
         cell.configureImage(image: event.image, imagePath: event.thumbnail?.fullPath, completion: { image in
             self.events[indexPath.row].image = image
