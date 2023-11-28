@@ -49,6 +49,7 @@ final class DetailsMediatingController: UIViewController {
     func setupTableView() {
         self.tableview.delegate = self
         self.tableview.dataSource = self
+        self.tableview.overrideUserInterfaceStyle = .dark
         self.tableview.register(UINib(nibName: "DetailsTableViewCell", bundle: nil), forCellReuseIdentifier: self.cell)
     }
     
@@ -144,8 +145,9 @@ extension DetailsMediatingController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .label
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = .white
+        header.contentView.tintColor = .mediumBlue()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
