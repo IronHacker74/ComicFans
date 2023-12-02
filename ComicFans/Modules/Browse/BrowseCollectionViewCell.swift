@@ -21,10 +21,9 @@ final class BrowseCollectionViewCell: UICollectionViewCell, UIViewLoading {
     func configureImage(image: UIImage?, imagePath: String?, completion: @escaping (UIImage?) -> Void) {
         if let image {
             self.browseImage.image = image
-            completion(nil)
+            completion(image)
             return
-        }
-        if let imagePath {
+        } else if let imagePath {
             self.browseImage.downloaded(from: imagePath, contentMode: .scaleAspectFill, completion: completion)
             return
         }

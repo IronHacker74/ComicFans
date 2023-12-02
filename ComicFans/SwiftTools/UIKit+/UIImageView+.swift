@@ -25,6 +25,13 @@ extension UIImageView {
     
     
     private func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit, completion: @escaping (UIImage?) -> (Void)) {
+        self.image = nil
+        let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        activityIndicator.color = .white
+        activityIndicator.center = self.center
+        self.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
@@ -36,6 +43,7 @@ extension UIImageView {
                 return
             }
             DispatchQueue.main.async() { [weak self] in
+                activityIndicator.stopAnimating()
                 self?.image = image
                 completion(image)
             }

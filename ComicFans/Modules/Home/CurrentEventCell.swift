@@ -21,10 +21,9 @@ final class CurrentEventCell: UITableViewCell, UIViewLoading {
     func configureImage(image: UIImage?, imagePath: String?, completion: @escaping (UIImage?) -> Void) {
         if let image {
             self.eventImage.image = image
-            completion(nil)
+            completion(image)
             return
-        }
-        if let imagePath {
+        } else if let imagePath {
             self.eventImage.downloaded(from: imagePath, completion: completion)
             return
         }
