@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830217142B1AF58B004CC0ED /* TriviaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830217132B1AF58B004CC0ED /* TriviaRequest.swift */; };
+		830217162B1B142C004CC0ED /* TriviaCollectionViewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830217152B1B142C004CC0ED /* TriviaCollectionViewCard.swift */; };
+		830217182B1B1435004CC0ED /* TriviaCollectionViewCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 830217172B1B1435004CC0ED /* TriviaCollectionViewCard.xib */; };
+		8302171C2B1B16D4004CC0ED /* TriviaCollectionViewQuestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302171B2B1B16D4004CC0ED /* TriviaCollectionViewQuestionCard.swift */; };
+		8302171E2B1B16E1004CC0ED /* TriviaCollectionViewQuestionCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8302171D2B1B16E1004CC0ED /* TriviaCollectionViewQuestionCard.xib */; };
+		830217202B1B16E9004CC0ED /* TriviaCollectionViewAnswerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302171F2B1B16E9004CC0ED /* TriviaCollectionViewAnswerCard.swift */; };
+		830217222B1B16F3004CC0ED /* TriviaCollectionViewAnswerCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 830217212B1B16F3004CC0ED /* TriviaCollectionViewAnswerCard.xib */; };
 		8320725D2B0AA50D001D3A94 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8320725C2B0AA50D001D3A94 /* Data+.swift */; };
 		8330F27B2AF8BB0E00AB79A0 /* HomeMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F27A2AF8BB0E00AB79A0 /* HomeMediatingControllerTests.swift */; };
 		8330F27D2AF8BBAC00AB79A0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F27C2AF8BBAC00AB79A0 /* UIView+.swift */; };
@@ -61,6 +68,11 @@
 		83AEF1112B00B606008DBD0A /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AEF1102B00B606008DBD0A /* DetailsTableViewCell.swift */; };
 		83AEF1132B00B60E008DBD0A /* DetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83AEF1122B00B60E008DBD0A /* DetailsTableViewCell.xib */; };
 		83E302912AF8C376004F073F /* UICollectionPageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E302902AF8C376004F073F /* UICollectionPageLayout.swift */; };
+		83F2814D2B1ACD6F00B7FA2C /* TriviaFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F2814C2B1ACD6F00B7FA2C /* TriviaFactory.swift */; };
+		83F2814F2B1ACD7700B7FA2C /* TriviaCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F2814E2B1ACD7700B7FA2C /* TriviaCoordinator.swift */; };
+		83F281512B1ACD7E00B7FA2C /* TriviaMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F281502B1ACD7E00B7FA2C /* TriviaMediatingController.swift */; };
+		83F281532B1ACD8700B7FA2C /* TriviaMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F281522B1ACD8700B7FA2C /* TriviaMediatingControllerTests.swift */; };
+		83F281552B1ACD9200B7FA2C /* TriviaMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F281542B1ACD9200B7FA2C /* TriviaMediatingController.xib */; };
 		83F64E372B0ED6DF005E857C /* DetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F64E362B0ED6DF005E857C /* DetailsRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +94,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		830217132B1AF58B004CC0ED /* TriviaRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaRequest.swift; sourceTree = "<group>"; };
+		830217152B1B142C004CC0ED /* TriviaCollectionViewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaCollectionViewCard.swift; sourceTree = "<group>"; };
+		830217172B1B1435004CC0ED /* TriviaCollectionViewCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriviaCollectionViewCard.xib; sourceTree = "<group>"; };
+		8302171B2B1B16D4004CC0ED /* TriviaCollectionViewQuestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaCollectionViewQuestionCard.swift; sourceTree = "<group>"; };
+		8302171D2B1B16E1004CC0ED /* TriviaCollectionViewQuestionCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriviaCollectionViewQuestionCard.xib; sourceTree = "<group>"; };
+		8302171F2B1B16E9004CC0ED /* TriviaCollectionViewAnswerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaCollectionViewAnswerCard.swift; sourceTree = "<group>"; };
+		830217212B1B16F3004CC0ED /* TriviaCollectionViewAnswerCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriviaCollectionViewAnswerCard.xib; sourceTree = "<group>"; };
 		8320725C2B0AA50D001D3A94 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		8330F27A2AF8BB0E00AB79A0 /* HomeMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMediatingControllerTests.swift; sourceTree = "<group>"; };
 		8330F27C2AF8BBAC00AB79A0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -141,6 +160,11 @@
 		83AEF1102B00B606008DBD0A /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		83AEF1122B00B60E008DBD0A /* DetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsTableViewCell.xib; sourceTree = "<group>"; };
 		83E302902AF8C376004F073F /* UICollectionPageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionPageLayout.swift; sourceTree = "<group>"; };
+		83F2814C2B1ACD6F00B7FA2C /* TriviaFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaFactory.swift; sourceTree = "<group>"; };
+		83F2814E2B1ACD7700B7FA2C /* TriviaCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaCoordinator.swift; sourceTree = "<group>"; };
+		83F281502B1ACD7E00B7FA2C /* TriviaMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaMediatingController.swift; sourceTree = "<group>"; };
+		83F281522B1ACD8700B7FA2C /* TriviaMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaMediatingControllerTests.swift; sourceTree = "<group>"; };
+		83F281542B1ACD9200B7FA2C /* TriviaMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriviaMediatingController.xib; sourceTree = "<group>"; };
 		83F64E362B0ED6DF005E857C /* DetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +193,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		830217232B1B16F8004CC0ED /* TriviaCard */ = {
+			isa = PBXGroup;
+			children = (
+				830217152B1B142C004CC0ED /* TriviaCollectionViewCard.swift */,
+				830217172B1B1435004CC0ED /* TriviaCollectionViewCard.xib */,
+				8302171B2B1B16D4004CC0ED /* TriviaCollectionViewQuestionCard.swift */,
+				8302171D2B1B16E1004CC0ED /* TriviaCollectionViewQuestionCard.xib */,
+				8302171F2B1B16E9004CC0ED /* TriviaCollectionViewAnswerCard.swift */,
+				830217212B1B16F3004CC0ED /* TriviaCollectionViewAnswerCard.xib */,
+			);
+			path = TriviaCard;
+			sourceTree = "<group>";
+		};
 		833198172AF88630008530BD /* MarvelAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +334,7 @@
 				83738D4B2AF7095D00F185FC /* Home */,
 				83353C502AF9EB5700726484 /* Browse */,
 				83AE56012B005B74003AFC13 /* Details */,
+				83F2814B2B1ACD4F00B7FA2C /* Trivia */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -337,6 +375,20 @@
 				83AEF1122B00B60E008DBD0A /* DetailsTableViewCell.xib */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		83F2814B2B1ACD4F00B7FA2C /* Trivia */ = {
+			isa = PBXGroup;
+			children = (
+				830217132B1AF58B004CC0ED /* TriviaRequest.swift */,
+				83F2814C2B1ACD6F00B7FA2C /* TriviaFactory.swift */,
+				83F2814E2B1ACD7700B7FA2C /* TriviaCoordinator.swift */,
+				83F281502B1ACD7E00B7FA2C /* TriviaMediatingController.swift */,
+				83F281522B1ACD8700B7FA2C /* TriviaMediatingControllerTests.swift */,
+				83F281542B1ACD9200B7FA2C /* TriviaMediatingController.xib */,
+				830217232B1B16F8004CC0ED /* TriviaCard */,
+			);
+			path = Trivia;
 			sourceTree = "<group>";
 		};
 		83F64E382B0ED6E8005E857C /* Requests */ = {
@@ -451,14 +503,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83F281552B1ACD9200B7FA2C /* TriviaMediatingController.xib in Resources */,
 				83AEF1132B00B60E008DBD0A /* DetailsTableViewCell.xib in Resources */,
 				83AE56092B005BAE003AFC13 /* DetailsMediatingController.xib in Resources */,
+				830217222B1B16F3004CC0ED /* TriviaCollectionViewAnswerCard.xib in Resources */,
 				83353C5C2AF9ECDD00726484 /* BrowseCollectionView.xib in Resources */,
 				83353C5A2AF9EC2B00726484 /* BrowseMediatingController.xib in Resources */,
 				83738D272AF7087D00F185FC /* LaunchScreen.storyboard in Resources */,
 				83738D242AF7087D00F185FC /* Assets.xcassets in Resources */,
+				8302171E2B1B16E1004CC0ED /* TriviaCollectionViewQuestionCard.xib in Resources */,
 				83A9A03E2AFA0E1B00C1DE87 /* BrowseCollectionViewCell.xib in Resources */,
 				833198272AF887EC008530BD /* README.md in Resources */,
+				830217182B1B1435004CC0ED /* TriviaCollectionViewCard.xib in Resources */,
 				83738D4F2AF70A4500F185FC /* CurrentEventCell.xib in Resources */,
 				83738D222AF7087D00F185FC /* Main.storyboard in Resources */,
 			);
@@ -485,8 +541,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				830217142B1AF58B004CC0ED /* TriviaRequest.swift in Sources */,
 				833198292AF887EC008530BD /* OpenLink.swift in Sources */,
+				8302171C2B1B16D4004CC0ED /* TriviaCollectionViewQuestionCard.swift in Sources */,
 				8331981B2AF88745008530BD /* UIImageView+.swift in Sources */,
+				830217162B1B142C004CC0ED /* TriviaCollectionViewCard.swift in Sources */,
 				8320725D2B0AA50D001D3A94 /* Data+.swift in Sources */,
 				83AE56072B005BA4003AFC13 /* DetailsMediatingController.swift in Sources */,
 				833198162AF88602008530BD /* Downloader.swift in Sources */,
@@ -498,6 +557,7 @@
 				83738D1B2AF7087D00F185FC /* AppDelegate.swift in Sources */,
 				83738D532AF70BAB00F185FC /* Thumbnail.swift in Sources */,
 				8384B7C72B0F2D8900EDA30A /* ErrorAlert.swift in Sources */,
+				83F2814D2B1ACD6F00B7FA2C /* TriviaFactory.swift in Sources */,
 				83423AF72B02F6E20090B476 /* ProcessingView.swift in Sources */,
 				8331982C2AF887EC008530BD /* UIPasteBoard+.swift in Sources */,
 				8331982E2AF89AE3008530BD /* APIKeys.swift in Sources */,
@@ -507,8 +567,11 @@
 				83E302912AF8C376004F073F /* UICollectionPageLayout.swift in Sources */,
 				83A9A0442AFA10E900C1DE87 /* BrowseRequest.swift in Sources */,
 				83A9A03C2AFA0CEA00C1DE87 /* BrowseCollectionViewCell.swift in Sources */,
+				83F281512B1ACD7E00B7FA2C /* TriviaMediatingController.swift in Sources */,
+				830217202B1B16E9004CC0ED /* TriviaCollectionViewAnswerCard.swift in Sources */,
 				83738D1D2AF7087D00F185FC /* SceneDelegate.swift in Sources */,
 				83F64E372B0ED6DF005E857C /* DetailsRequest.swift in Sources */,
+				83F2814F2B1ACD7700B7FA2C /* TriviaCoordinator.swift in Sources */,
 				83A422322AFE9CCE00626208 /* DataSet.swift in Sources */,
 				83A9A0402AFA108100C1DE87 /* BrowseFactory.swift in Sources */,
 				8331981A2AF88745008530BD /* String+.swift in Sources */,
@@ -530,6 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83738D322AF7087D00F185FC /* ComicFansTests.swift in Sources */,
+				83F281532B1ACD8700B7FA2C /* TriviaMediatingControllerTests.swift in Sources */,
 				8384B7CF2B0F315000EDA30A /* DetailsMediatingControllerTests.swift in Sources */,
 				8330F27B2AF8BB0E00AB79A0 /* HomeMediatingControllerTests.swift in Sources */,
 				8384B7CD2B0F314400EDA30A /* BrowseCollectionViewCellTests.swift in Sources */,

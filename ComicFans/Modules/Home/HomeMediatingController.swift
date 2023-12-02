@@ -12,6 +12,7 @@ protocol HomeDelegate {
     func homeMediatingControllerCategoryCellTapped(browseType: BrowseType)
     func homeMediatingControllerEventTapped(event: DataSet, attribution: String?)
     func homeMediatingControllerLoadMoreEvents(_ vc: HomeDisplayable, offset: Int)
+    func homeMediatingControllerDidTouchMarvelTrivia()
 }
 
 protocol HomeDisplayable: ProcessingView, ErrorAlert {
@@ -24,6 +25,7 @@ class HomeMediatingController: UIViewController, UIViewLoading {
     @IBOutlet private (set) var collectionview: UICollectionView!
     @IBOutlet private (set) var tableview: UITableView!
     @IBOutlet private (set) var attributionLabel: UILabel!
+    @IBOutlet private (set) var marvelTriviaBtn: UIButton!
     
     private var delegate: HomeDelegate?
     private var events: [DataSet] = []
@@ -55,6 +57,10 @@ class HomeMediatingController: UIViewController, UIViewLoading {
     private func setupCollectionView() {
         self.collectionview.dataSource = self
         self.collectionview.delegate = self
+    }
+    
+    @IBAction func didTouchPlayMarvelTrivia(_ sender: UIButton) {
+        self.delegate?.homeMediatingControllerDidTouchMarvelTrivia()
     }
 }
 

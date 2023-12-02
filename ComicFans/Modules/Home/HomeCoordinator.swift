@@ -78,4 +78,11 @@ final class HomeCoordinator: HomeDelegate {
             }
         })
     }
+    
+    func homeMediatingControllerDidTouchMarvelTrivia() {
+        let factory = TriviaFactory()
+        let coordinator = factory.makeCoordinator()
+        let controller = factory.makeMediatingController(delegate: coordinator)
+        self.navigator?.pushViewController(controller, animated: true)
+    }
 }

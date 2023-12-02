@@ -12,6 +12,8 @@ struct APIData: Decodable {
     let data: ResultsData
     let attributionText: String
     struct ResultsData: Decodable {
+        let total: Int
+        let count: Int
         let results: [DataSet]?
     }
 }
