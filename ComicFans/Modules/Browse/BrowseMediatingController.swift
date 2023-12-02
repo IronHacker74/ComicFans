@@ -64,6 +64,7 @@ final class BrowseMediatingController: UIViewController {
     private func setupSearchBar() {
         self.searchbar.delegate = self
         self.searchbar.tintColor = .white
+        self.searchbar.overrideUserInterfaceStyle = .dark
     }
     
     private func setupCollectionview() {
