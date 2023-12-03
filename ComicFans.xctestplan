@@ -24,7 +24,6 @@
       }
     },
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:ComicFans.xcodeproj",
         "identifier" : "83738D362AF7087E00F185FC",
