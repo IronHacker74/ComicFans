@@ -17,18 +17,20 @@ final class TriviaCollectionViewCard: UICollectionViewCell {
         self.questionCard = TriviaCollectionViewQuestionCard.initFromNib()
         self.questionCard?.setupQuestionCard(question: dataset.description)
         self.answerCard = TriviaCollectionViewAnswerCard.initFromNib()
-        self.answerCard?.setupAnswerCard(urlImagePath: dataset.thumbnail?.fullPath, answer: dataset.title)
+        self.answerCard?.setupAnswerCard(urlImagePath: dataset.thumbnail?.fullPath, answer: dataset.getTitle())
         if let questionCard {
             self.cardView.addSubview(questionCard)
+            self.answerCard?.frame = self.frame
         }
     }
     
     func cardViewTapped() {
         guard let answerCard, let questionCard else { return }
         if self.currentCardState {
-            UIView.transition(from: answerCard, to: questionCard, duration: 1, options: .transitionFlipFromLeft, completion: nil)
+            UIView.transition(from: answerCard, to: questionCard, duration: 0.5, options: .transitionFlipFromLeft, completion: nil)
         } else {
-            UIView.transition(from: questionCard, to: answerCard, duration: 1, options: .transitionFlipFromRight, completion: nil)
+            self.answerCard?.downloadImageIfNecessary()
+            UIView.transition(from: questionCard, to: answerCard, duration: 0.5, options: .transitionFlipFromRight, completion: nil)
         }
         self.currentCardState.toggle()
     }

@@ -29,7 +29,7 @@
             <connections>
                 <outlet property="cardView" destination="8gu-M0-UQX" id="062-q5-IMJ"/>
             </connections>
-            <point key="canvasLocation" x="74" y="20"/>
+            <point key="canvasLocation" x="72.51908396946564" y="19.718309859154932"/>
         </view>
     </objects>
 </document>

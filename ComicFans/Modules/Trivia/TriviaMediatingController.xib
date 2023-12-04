@@ -21,10 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gLg-oz-mrs">
-                    <rect key="frame" x="45" y="210" width="304" height="431"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gLg-oz-mrs">
+                    <rect key="frame" x="0.0" y="179" width="393" height="494"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ghd-Y2-H2N">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -32,9 +31,9 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgB-ZI-D1J">
-                    <rect key="frame" x="16" y="797" width="361" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgB-ZI-D1J">
+                    <rect key="frame" x="16" y="818" width="361" height="0.0"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -43,8 +42,13 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="EgB-ZI-D1J" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="NBm-rY-QXO"/>
+                <constraint firstItem="gLg-oz-mrs" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="120" id="Qnl-f5-y1H"/>
                 <constraint firstItem="EgB-ZI-D1J" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="WVU-YE-YXK"/>
+                <constraint firstItem="gLg-oz-mrs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XEl-Mq-Pqi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EgB-ZI-D1J" secondAttribute="trailing" constant="16" id="jFa-ZS-8DO"/>
+                <constraint firstItem="gLg-oz-mrs" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="tKT-eL-bga"/>
+                <constraint firstItem="gLg-oz-mrs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tqo-Nj-6CB"/>
+                <constraint firstItem="gLg-oz-mrs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="uRc-y2-Gfn"/>
             </constraints>
             <point key="canvasLocation" x="-28.244274809160306" y="19.718309859154932"/>
         </view>
