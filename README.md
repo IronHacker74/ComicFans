@@ -1,7 +1,7 @@
 # ComicFans
-The ultimate app for Marvel comic lovers. Discover everything Marvel ©
+The ultimate app for Marvel comic lovers! Discover everything in the Marvel universe!
 
-Maybe you wonder how all the characters and stories in Marvel © connect?
+Maybe you wonder how all the characters and stories in Marvel connect?
 <br>
 Or maybe you’ve read many comics and want to know how things progress?
 <br><br>
@@ -11,7 +11,7 @@ Search - find anything when you search a keyword for the chosen category.
 <br><br>
 Browse - scroll through the default list of items in the chosen category.
 <br><br>
-The Rabbit Hole - every story, character, creator, series, comic, and event points to another. Lose yourself in the massive amounts of connections in the Marvel © universe.
+The Rabbit Hole - every story, character, creator, series, comic, and event points to another. Lose yourself in the massive amounts of connections in the Marvel universe.
 <br><br>
 Share - send links to your friends or find the comics to purchase online with the links provided to you.
 <br><br>
@@ -26,4 +26,5 @@ Share - send links to your friends or find the comics to purchase online with th
 <img src="https://github.com/IronHacker74/ComicFans/assets/23727704/a1ec9ef7-d43c-44e3-a5ed-80dd2c886594" width="200" height="400">
 
 <br><br>
-ComicFans is powered by Marvel © the API can be found at developer.marvel.com<br><br>
+ComicFans is powered by © 2023 Marvel.
+The API can be found at developer.marvel.com<br><br>
