@@ -14,13 +14,17 @@ final class TriviaCollectionViewCard: UICollectionViewCell {
     private var currentCardState: Bool = false // false is question, true is answer
 
     func configureCell(dataset: DataSet) {
+        self.cardView.frame = self.frame
         self.questionCard = TriviaCollectionViewQuestionCard.initFromNib()
         self.questionCard?.setupQuestionCard(question: dataset.description)
+        self.questionCard?.frame = self.frame
+        self.questionCard?.center = self.center
         self.answerCard = TriviaCollectionViewAnswerCard.initFromNib()
         self.answerCard?.setupAnswerCard(urlImagePath: dataset.thumbnail?.fullPath, answer: dataset.getTitle())
+        self.answerCard?.frame = self.frame
+        self.answerCard?.center = self.center
         if let questionCard {
             self.cardView.addSubview(questionCard)
-            self.answerCard?.frame = self.frame
         }
     }
     
