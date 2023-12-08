@@ -37,8 +37,21 @@ final class DetailsMediatingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         self.view.backgroundColor = .darkBlue()
         self.delegate?.detailsMediatingControllerViewDidLoad(self)
+    }
+    
+    private func setupNavTitle(_ title: String?) {
+        let label = UILabel(frame: .zero)
+        label.backgroundColor = .clear
+        label.numberOfLines = 0
+        label.textColor = .white
+        label.text = title
+        label.textAlignment = .center
+        label.minimumScaleFactor = 0.6
+        label.font = UIFont(name: "Copperplate", size: 20)
+        self.navigationItem.titleView = label
     }
     
     func setupMoreInfoNavigationItem() {
@@ -78,7 +91,7 @@ extension DetailsMediatingController: DetailsDisplayable {
         if let urls = data.urls, urls.isEmpty == false {
             self.setupMoreInfoNavigationItem()
         }
-        self.navigationItem.title = data.getTitle()
+        self.setupNavTitle(data.getTitle())
         self.setupImage(data.image, imagePath: data.thumbnail?.fullPath)
         self.attributionLabel.text = attribution
         self.addDescription(data.description)

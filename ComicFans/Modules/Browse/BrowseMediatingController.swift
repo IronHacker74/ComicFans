@@ -52,6 +52,7 @@ final class BrowseMediatingController: UIViewController {
         self.setupCollectionview()
         self.view.backgroundColor = .darkBlue()
         self.navigationItem.title = self.screenTitle
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         self.singleViewButton.tintColor = .mediumBlue()
         self.multiViewButton.tintColor = .mediumBlue()
         self.delegate?.browseViewDidLoad(self)
