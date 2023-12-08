@@ -9,33 +9,30 @@ import UIKit
 
 final class TriviaCollectionViewCard: UICollectionViewCell {
     @IBOutlet private (set) var cardView: UIView!
-    private var questionCard: TriviaCollectionViewQuestionCard?
-    private var answerCard: TriviaCollectionViewAnswerCard?
+    private let questionCard: TriviaCollectionViewQuestionCard = TriviaCollectionViewQuestionCard.initFromNib()
+    private let answerCard: TriviaCollectionViewAnswerCard = TriviaCollectionViewAnswerCard.initFromNib()
     private var currentCardState: Bool = false // false is question, true is answer
 
     func configureCell(dataset: DataSet) {
-        self.cardView.frame = self.frame
-        self.questionCard = TriviaCollectionViewQuestionCard.initFromNib()
-        self.questionCard?.setupQuestionCard(question: dataset.description)
-        self.questionCard?.frame = self.frame
-        self.questionCard?.center = self.center
-        self.answerCard = TriviaCollectionViewAnswerCard.initFromNib()
-        self.answerCard?.setupAnswerCard(urlImagePath: dataset.thumbnail?.fullPath, answer: dataset.getTitle())
-        self.answerCard?.frame = self.frame
-        self.answerCard?.center = self.center
-        if let questionCard {
-            self.cardView.addSubview(questionCard)
-        }
+        self.removeSubviews()
+        self.cardView.addSubview(self.questionCard)
+        self.questionCard.setupQuestionCard(question: dataset.description)
+        self.answerCard.setupAnswerCard(urlImagePath: dataset.thumbnail?.fullPath, answer: dataset.getTitle())
     }
     
     func cardViewTapped() {
-        guard let answerCard, let questionCard else { return }
         if self.currentCardState {
-            UIView.transition(from: answerCard, to: questionCard, duration: 0.5, options: .transitionFlipFromLeft, completion: nil)
+            UIView.transition(from: self.answerCard, to: self.questionCard, duration: 0.5, options: .transitionFlipFromLeft, completion: nil)
         } else {
-            self.answerCard?.downloadImageIfNecessary()
-            UIView.transition(from: questionCard, to: answerCard, duration: 0.5, options: .transitionFlipFromRight, completion: nil)
+            self.answerCard.downloadImageIfNecessary()
+            UIView.transition(from: self.questionCard, to: self.answerCard, duration: 0.5, options: .transitionFlipFromRight, completion: nil)
         }
         self.currentCardState.toggle()
+    }
+    
+    private func removeSubviews() {
+        for subview in self.cardView.subviews {
+            subview.removeFromSuperview()
+        }
     }
 }
