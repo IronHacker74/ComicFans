@@ -36,8 +36,8 @@ final class BrowseCollectionView: UICollectionView, UICollectionViewDataSource, 
         }
         let dataset = self.browseData[indexPath.row]
         cell.configureCell(title: dataset.getTitle(), description: dataset.description)
-        cell.configureImage(image: dataset.image, imagePath: dataset.thumbnail?.fullPath, completion: { image in
-            self.browseData[indexPath.row].image = image
+        cell.configureImage(image: dataset.image, imagePath: dataset.thumbnail?.fullPath, completion: { [weak self] image in
+            self?.browseData[indexPath.row].image = image
         })
         return cell
     }
