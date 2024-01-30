@@ -1,4 +1,4 @@
-![githubLogo](https://github.com/codehacker74/ComicFans/assets/23727704/686ab3b0-3937-450a-9b63-672dfb9ca886)
+![weblogo](https://github.com/codehacker74/ComicFans/assets/23727704/3025394f-a084-4ac2-8f6b-aacb5a5cebc2)
 <br><br>
 [Download in the App Store!](https://apps.apple.com/us/app/comicfans-marvel-comics/id6471394415)
 <br><br>The ultimate app for Marvel comic lovers! Discover everything in the Marvel universe!
