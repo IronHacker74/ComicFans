@@ -17,9 +17,10 @@ protocol DetailsDisplayable: UIViewLoading, ProcessingView, ErrorAlert {
     func setOutlets(data: DataSet, attribution: String?)
 }
 
-final class DetailsMediatingController: UIViewController {
+final class DetailsMediatingController: UIViewController, PadConstraints {
     @IBOutlet private (set) var tableview: UITableView!
     @IBOutlet private (set) var attributionLabel: UILabel!
+    @IBOutlet var padConstraints: [NSLayoutConstraint] = []
     
     private let delegate: DetailsDelegate?
     private let cell: String = "DetailsTableViewCell"
@@ -40,6 +41,7 @@ final class DetailsMediatingController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         self.view.backgroundColor = .darkBlue()
         self.delegate?.detailsMediatingControllerViewDidLoad(self)
+        self.setPadConstraints(size: self.view.frame.size)
     }
     
     private func setupNavTitle(_ title: String?) {
@@ -55,8 +57,9 @@ final class DetailsMediatingController: UIViewController {
     }
     
     func setupMoreInfoNavigationItem() {
+        guard UIDevice.current.userInterfaceIdiom == .phone else { return }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(self.didTouchShareLink))
-        self.navigationItem.rightBarButtonItem?.tintColor = .mediumBlue()
+        self.navigationItem.rightBarButtonItem?.tintColor = .offWhite()
     }
     
     func setupTableView() {
@@ -64,6 +67,7 @@ final class DetailsMediatingController: UIViewController {
         self.tableview.dataSource = self
         self.tableview.overrideUserInterfaceStyle = .dark
         self.tableview.register(UINib(nibName: "DetailsTableViewCell", bundle: nil), forCellReuseIdentifier: self.cell)
+        self.tableview.showsVerticalScrollIndicator = false
     }
     
     func validDescription(_ text: String?) -> Bool {
@@ -128,6 +132,9 @@ extension DetailsMediatingController: DetailsDisplayable {
         let frame = CGRectMake(0, 0, self.view.frame.size.width, height)
         let headerImageView = UIImageView(frame: frame)
         headerImageView.image = image
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            headerImageView.contentMode = .scaleAspectFit
+        }
         self.tableview.tableHeaderView = headerImageView
     }
     
@@ -160,7 +167,7 @@ extension DetailsMediatingController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.textColor = .white
-        header.contentView.tintColor = .mediumBlue()
+        header.contentView.tintColor = .offWhite()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

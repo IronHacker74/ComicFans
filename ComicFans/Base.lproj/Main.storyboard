@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dQd-lK-pSh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dQd-lK-pSh">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -93,9 +93,10 @@
                                     <constraint firstAttribute="height" constant="125" id="fRW-uf-caV"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="175" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eEk-aZ-cOA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="175" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eEk-aZ-cOA">
                                 <rect key="frame" x="0.0" y="236" width="393" height="566"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4B-nF-c1L" userLabel="CopyrightLabel">
                                 <rect key="frame" x="16" y="818" width="361" height="0.0"/>
@@ -115,7 +116,7 @@
                             <constraint firstItem="m4B-nF-c1L" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LhM-55-zxo"/>
                             <constraint firstItem="eEk-aZ-cOA" firstAttribute="top" secondItem="8Hs-Ja-Uf6" secondAttribute="bottom" constant="8" id="SdF-oH-0tz"/>
                             <constraint firstItem="eEk-aZ-cOA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eyn-j8-2ql"/>
-                            <constraint firstItem="eEk-aZ-cOA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pgr-Fm-4Pg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eEk-aZ-cOA" secondAttribute="trailing" id="pgr-Fm-4Pg"/>
                             <constraint firstItem="m4B-nF-c1L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="rpG-cN-cc9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m4B-nF-c1L" secondAttribute="trailing" constant="16" id="zmG-9M-oD8"/>
                         </constraints>
@@ -125,6 +126,10 @@
                         <outlet property="attributionLabel" destination="m4B-nF-c1L" id="b8z-dt-Yj2"/>
                         <outlet property="collectionview" destination="Hb3-4x-btF" id="Fe3-nA-wrX"/>
                         <outlet property="tableview" destination="eEk-aZ-cOA" id="DXc-lj-gzG"/>
+                        <outletCollection property="padConstraints" destination="5UO-Bk-5bU" collectionClass="NSMutableArray" id="IEG-3o-K7p"/>
+                        <outletCollection property="padConstraints" destination="pgr-Fm-4Pg" collectionClass="NSMutableArray" id="M66-tB-hqc"/>
+                        <outletCollection property="padConstraints" destination="eyn-j8-2ql" collectionClass="NSMutableArray" id="Uun-EO-FSn"/>
+                        <outletCollection property="padConstraints" destination="Avk-As-drV" collectionClass="NSMutableArray" id="b4m-hF-7iO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

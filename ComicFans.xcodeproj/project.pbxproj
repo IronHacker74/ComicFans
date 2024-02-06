@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8320725D2B0AA50D001D3A94 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8320725C2B0AA50D001D3A94 /* Data+.swift */; };
+		832ADCA62B71724900A74BC7 /* PadConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832ADCA52B71724900A74BC7 /* PadConstraints.swift */; };
 		8330F27B2AF8BB0E00AB79A0 /* HomeMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F27A2AF8BB0E00AB79A0 /* HomeMediatingControllerTests.swift */; };
 		8330F27D2AF8BBAC00AB79A0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330F27C2AF8BBAC00AB79A0 /* UIView+.swift */; };
 		833198162AF88602008530BD /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833198152AF88602008530BD /* Downloader.swift */; };
@@ -83,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		8320725C2B0AA50D001D3A94 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
+		832ADCA52B71724900A74BC7 /* PadConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadConstraints.swift; sourceTree = "<group>"; };
 		8330F27A2AF8BB0E00AB79A0 /* HomeMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMediatingControllerTests.swift; sourceTree = "<group>"; };
 		8330F27C2AF8BBAC00AB79A0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		833198152AF88602008530BD /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				83E302902AF8C376004F073F /* UICollectionPageLayout.swift */,
+				832ADCA52B71724900A74BC7 /* PadConstraints.swift */,
 				8331981C2AF8874C008530BD /* ShadowView.swift */,
 				833198212AF887EC008530BD /* Alert.swift */,
 				833198222AF887EC008530BD /* OpenLink.swift */,
@@ -485,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				832ADCA62B71724900A74BC7 /* PadConstraints.swift in Sources */,
 				833198292AF887EC008530BD /* OpenLink.swift in Sources */,
 				8331981B2AF88745008530BD /* UIImageView+.swift in Sources */,
 				8320725D2B0AA50D001D3A94 /* Data+.swift in Sources */,
@@ -721,7 +725,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IronHacker.ComicFans;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -729,7 +733,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -753,7 +757,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IronHacker.ComicFans;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -761,7 +765,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

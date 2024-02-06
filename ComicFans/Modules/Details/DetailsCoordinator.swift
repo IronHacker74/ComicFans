@@ -59,6 +59,9 @@ final class DetailsCoordinator: DetailsDelegate {
             }
             if UIApplication.shared.canOpenURL(url) {
                 let controller = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                let topView = self.navigator?.topViewController?.view
+                controller.popoverPresentationController?.sourceView = topView
+                controller.popoverPresentationController?.sourceRect = topView?.frame ?? .zero
                 self.navigator?.present(controller, animated: true)
                 break
             }

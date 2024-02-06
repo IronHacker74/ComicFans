@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,6 +17,11 @@
                 <outlet property="searchbar" destination="R4F-dt-GJ2" id="snX-jU-WQL"/>
                 <outlet property="singleViewButton" destination="PKz-p5-aUp" id="ibT-nK-vUT"/>
                 <outlet property="view" destination="iN0-l3-epB" id="gPZ-oa-o0b"/>
+                <outletCollection property="padConstraints" destination="XdR-kx-PtA" collectionClass="NSMutableArray" id="ZaY-Xg-zOH"/>
+                <outletCollection property="padConstraints" destination="tVC-Sq-ygo" collectionClass="NSMutableArray" id="WZO-Jd-oDg"/>
+                <outletCollection property="padConstraints" destination="Cpg-FA-ykS" collectionClass="NSMutableArray" id="k23-VS-Yhx"/>
+                <outletCollection property="padConstraints" destination="xOd-15-39k" collectionClass="NSMutableArray" id="NIR-XV-ozq"/>
+                <outletCollection property="padConstraints" destination="Gi6-Od-gbl" collectionClass="NSMutableArray" id="M4u-Fu-L4p"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,7 +29,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar tag="1" contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="R4F-dt-GJ2">
+                <searchBar tag="1" contentMode="redraw" searchBarStyle="minimal" placeholder="search" translatesAutoresizingMaskIntoConstraints="NO" id="R4F-dt-GJ2">
                     <rect key="frame" x="0.0" y="59" width="393" height="56"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,13 +74,13 @@
                 <constraint firstItem="R4F-dt-GJ2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Cpg-FA-ykS"/>
                 <constraint firstItem="Vms-GM-Qpa" firstAttribute="top" secondItem="R4F-dt-GJ2" secondAttribute="bottom" id="FMs-XU-Cmd"/>
                 <constraint firstItem="VbE-oe-1SF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Gi6-Od-gbl"/>
-                <constraint firstItem="R4F-dt-GJ2" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="XdR-kx-PtA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="R4F-dt-GJ2" secondAttribute="trailing" id="XdR-kx-PtA"/>
                 <constraint firstItem="X9g-XZ-OCw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="c0C-b9-wBP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="X9g-XZ-OCw" secondAttribute="trailing" constant="16" id="cIy-Zy-tqx"/>
                 <constraint firstItem="X9g-XZ-OCw" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="irZ-Cz-aQJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Vms-GM-Qpa" secondAttribute="trailing" id="tVC-Sq-ygo"/>
                 <constraint firstItem="X9g-XZ-OCw" firstAttribute="top" secondItem="VbE-oe-1SF" secondAttribute="bottom" constant="24" id="tlb-6F-Ths"/>
-                <constraint firstItem="VbE-oe-1SF" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="xOd-15-39k"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VbE-oe-1SF" secondAttribute="trailing" id="xOd-15-39k"/>
                 <constraint firstItem="R4F-dt-GJ2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="zqY-gP-1JT"/>
             </constraints>
             <point key="canvasLocation" x="-45.038167938931295" y="19.718309859154932"/>

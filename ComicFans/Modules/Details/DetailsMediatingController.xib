@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,6 +14,8 @@
                 <outlet property="attributionLabel" destination="mDv-20-GcY" id="JhN-aw-GfC"/>
                 <outlet property="tableview" destination="OEL-0e-S1b" id="UG0-UT-r9Y"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ZcW-Yh-ElI"/>
+                <outletCollection property="padConstraints" destination="fcI-e0-Akd" collectionClass="NSMutableArray" id="g6t-lc-YVj"/>
+                <outletCollection property="padConstraints" destination="YHU-jc-XUA" collectionClass="NSMutableArray" id="FNg-s9-ehz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,7 +29,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OEL-0e-S1b">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OEL-0e-S1b">
                     <rect key="frame" x="0.0" y="59" width="393" height="743"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,7 +45,7 @@
                 <constraint firstItem="mDv-20-GcY" firstAttribute="top" secondItem="OEL-0e-S1b" secondAttribute="bottom" constant="16" id="UTE-J3-ojn"/>
                 <constraint firstItem="OEL-0e-S1b" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YHU-jc-XUA"/>
                 <constraint firstItem="mDv-20-GcY" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="bGj-sG-f6c"/>
-                <constraint firstItem="OEL-0e-S1b" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="fcI-e0-Akd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OEL-0e-S1b" secondAttribute="trailing" id="fcI-e0-Akd"/>
             </constraints>
             <point key="canvasLocation" x="52.671755725190835" y="20.422535211267608"/>
         </view>

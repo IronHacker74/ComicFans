@@ -24,13 +24,14 @@ protocol BrowseCollectionViewDelegate {
     func collectionViewContinueDownload(offset: Int)
 }
 
-final class BrowseMediatingController: UIViewController {
+final class BrowseMediatingController: UIViewController, PadConstraints {
     
     @IBOutlet private (set) var searchbar: UISearchBar!
     @IBOutlet private (set) var browseContentView: UIStackView!
     @IBOutlet private (set) var attributionLabel: UILabel!
     @IBOutlet private (set) var singleViewButton: UIButton!
     @IBOutlet private (set) var multiViewButton: UIButton!
+    @IBOutlet var padConstraints: [NSLayoutConstraint] = []
     
     private var delegate: BrowseDelegate?
     private var screenTitle: String
@@ -53,9 +54,10 @@ final class BrowseMediatingController: UIViewController {
         self.view.backgroundColor = .darkBlue()
         self.navigationItem.title = self.screenTitle
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
-        self.singleViewButton.tintColor = .mediumBlue()
-        self.multiViewButton.tintColor = .mediumBlue()
+        self.singleViewButton.tintColor = .offWhite()
+        self.multiViewButton.tintColor = .offWhite()
         self.delegate?.browseViewDidLoad(self)
+        self.setPadConstraints(size: self.view.frame.size)
     }
     
     override func viewDidAppear(_ animated: Bool) {

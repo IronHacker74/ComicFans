@@ -15,7 +15,9 @@ final class CurrentEventCell: UITableViewCell, UIViewLoading {
     func configureCell(event: DataSet) {
         self.backgroundColor = .clear
         self.titleLabel.text = event.title
+        self.titleLabel.textColor = .offWhite()
         self.descriptionLabel.text = event.description
+        self.descriptionLabel.textColor = .offWhite()
     }
     
     func configureImage(image: UIImage?, imagePath: String?, completion: @escaping (UIImage?) -> Void) {

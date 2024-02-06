@@ -22,10 +22,10 @@ extension UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
     
-    static func mediumBlue() -> UIColor {
-        let red: CGFloat = 93/255
-        let green: CGFloat = 139/255
-        let blue: CGFloat = 162/255
+    static func offWhite() -> UIColor {
+        let red: CGFloat = 242/255
+        let green: CGFloat = 245/255
+        let blue: CGFloat = 236/255
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
 }

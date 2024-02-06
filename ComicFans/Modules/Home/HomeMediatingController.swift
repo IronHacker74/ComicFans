@@ -20,10 +20,11 @@ protocol HomeDisplayable: ProcessingView, ErrorAlert {
     func updateAttributionText(_ text: String?)
 }
 
-class HomeMediatingController: UIViewController, UIViewLoading {
+class HomeMediatingController: UIViewController, UIViewLoading, PadConstraints {
     @IBOutlet private (set) var collectionview: UICollectionView!
     @IBOutlet private (set) var tableview: UITableView!
     @IBOutlet private (set) var attributionLabel: UILabel!
+    @IBOutlet var padConstraints: [NSLayoutConstraint] = []
     
     private var delegate: HomeDelegate?
     private var events: [DataSet] = []
@@ -38,6 +39,7 @@ class HomeMediatingController: UIViewController, UIViewLoading {
         self.setupTableView()
         self.setupCollectionView()
         self.delegate?.homeMediatingControllerViewDidLoad(self)
+        self.setPadConstraints(size: self.view.frame.size)
     }
     
     private func setupViewController() {
@@ -50,6 +52,7 @@ class HomeMediatingController: UIViewController, UIViewLoading {
         self.tableview.dataSource = self
         self.tableview.delegate = self
         self.tableview.register(UINib(nibName: self.tableviewIdentifier, bundle: nil), forCellReuseIdentifier: self.tableviewIdentifier)
+        self.tableview.separatorColor = .offWhite()
     }
 
     private func setupCollectionView() {
